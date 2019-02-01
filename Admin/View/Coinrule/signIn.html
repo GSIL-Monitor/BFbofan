@@ -1,0 +1,326 @@
+<head>
+<meta charset="utf-8" />
+<title>{:L('newworld_admin')}</title>
+<meta name="keywords" content="{:L('newworld_admin')}" />
+<meta name="description" content="{:L('newworld_admin')}" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="__PUBLIC__/Admin//admin/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/font-awesome.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/jquery-ui-1.10.3.custom.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/chosen.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/datepicker.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/bootstrap-timepicker.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/daterangepicker.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/colorpicker.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/colorbox.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace-skins.min.css" />
+<script src="__PUBLIC__/Admin/admin/js/jquery-2.0.3.min.js"></script>
+<script src="__PUBLIC__/Admin//admin/js/ace-extra.min.js"></script>
+<script src="__PUBLIC__/Admin//admin/js/html5shiv.js"></script>
+<script src="__PUBLIC__/Admin//admin/js/respond.min.js"></script>
+<script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body style='background:#fff;'>
+<div class="main-content">
+<div class="breadcrumbs" id="breadcrumbs">
+<script type="text/javascript">
+try { ace.settings.check('breadcrumbs', 'fixed') } catch (e) { }
+</script>
+<ul class="breadcrumb">
+<li>
+<i class="icon-home home-icon"></i>
+<a href="#">{:L('newworld_home')}</a>
+</li>
+<li class="active">{:L('newworld_console')}</li>
+</ul><!-- .breadcrumb -->
+</div>
+</div>  
+<div class="page-content">
+<div class="page-header">
+<h1>
+规则管理
+<small> <i class="icon-double-angle-right"></i>
+签到积分设置
+</small>
+</h1>
+</div>
+<div class="row">
+<div class="col-xs-12">		
+<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg" style="margin-right: 20px; width: 80px; height: 30px; text-align: center; font-size: 10px; line-height: 1px; margin-bottom: 10px;" onclick="openAddFormModal()">
+新建规则
+</button>
+</div> 
+</div>
+<div class="row">
+<ul id="myTab" class="nav nav-tabs" role="tablist">
+<li id="type-7">
+<a href="/index.php?m=Admin&c=Coinrule&a=signIn&type=7">连续签到</a>
+</li>
+<li id="type-8">  
+<a href="/index.php?m=Admin&c=Coinrule&a=signIn&type=8">累计签到</a>
+</li>
+</ul>
+<div class="table-responsive">
+<table id="sample-table-1" class="table table-striped table-bordered table-hover" style="margin-bottom: 0px;font-size:13px;">
+<thead>
+<tr style=' font-size: 13px;'>
+<th><?php echo ($type == 7? '起始天数': '累计天数' ) ?></th>
+<?php 
+if($type == 7) {
+	echo '<th>'.截止天数.'</th>';
+}
+?>
+<th>奖励积分</th>
+<th>创建时间</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody>
+<?php foreach($data as $k => $v){?>
+	<tr>
+		<td><?php echo $v['min']; ?></td>
+		<?php
+		if($type == 7) {
+			echo '<td>'.$v['max'].'</td>';
+		}
+	?>
+		<td><?php echo $v['coin']; ?></td>
+		<td><?php echo $v['created_at']; ?></td>
+		<td>
+		<button onclick="openUpdFormModal('<?php echo implode(',', array_keys($v)); ?>', '<?php echo implode(',', array_values($v)); ?>')" " type="submit" style="padding:0" class="btn btn-blue btn-sm">编辑</button>
+
+		<button onclick="del_submit(<?php echo $v['id']; ?>)" type="submit" style="padding:0" class="btn btn-purple btn-sm">删除</button>
+		</td>
+		</tr>
+		<?php }?>
+		</tbody>
+		</table>
+		<div class="dataTables_paginate paging_bootstrap" style="border-top: 1px solid #DDD;padding-top: 12px;padding-bottom: 12px;background-color: #eff3f8;border-bottom: 1px solid #DDD;">
+		<div style='margin-right:56px;'>
+		<?php echo $page;?>
+		</div>
+		</div>
+		</div>
+		</div>
+		<div>
+		<div class="modal" id="addFormModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+		<div class="modal-content">
+		<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title">新建签到规则</h4>
+		</div>
+		<div class="modal-body">
+		<form class="form-horizontal">
+		<div class="form-group">
+		<label for="inputPassword3" class="col-sm-2 control-label">状态</label>
+		<div class="col-sm-10">
+		<select id="add_type" class="form-control">
+		<option value="7">连续签到</option>
+		<option value="8">累计签到</option>
+		</select>
+		</div>
+		</div>
+		<div class="form-group">
+		<label id="add_min_label" for="inputPassword3" class="col-sm-2 control-label">起始天数</label>
+		<div class="col-sm-10">
+		<input type="number" value="0" class="form-control" id="add_min">
+		</div>
+		</div>
+		<div id="add_max_form" class="form-group">
+		<label for="inputPassword3" class="col-sm-2 control-label">截止天数</label>
+		<div class="col-sm-10">
+		<input type="number" value="0" class="form-control" id="add_max">
+		</div>
+		</div>
+		<div class="form-group">
+		<label for="inputPassword3" class="col-sm-2 control-label">奖励积分</label>
+		<div class="col-sm-10">
+		<input type="number" value="0" class="form-control" id="add_coin">
+		</div>
+		</div>
+		</form>
+		</div>
+		<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		<button type="button" class="btn btn-primary" onclick="add_submit()">提交</button>
+		</div>
+		</div>
+		</div>
+		</div>
+
+<div class="modal" id="updFormModal" key="" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">编辑规则</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label id="upd_min_label" for="inputPassword3" class="col-sm-2 control-label">起始天数</label>
+                        <div class="col-sm-10">
+                            <input type="number" value="0" class="form-control" id="upd_min">
+                        </div>
+                    </div>
+                    <div id="upd_max_form" class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">截止天数</label>
+                        <div class="col-sm-10">
+                            <input type="number" value="0" class="form-control" id="upd_max">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">积分数</label>
+                        <div class="col-sm-10">
+                            <input type="number" value="0" class="form-control" id="upd_coin">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="upd_submit()">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+		<script>	
+		(function() {
+		 $('#type-{$type}').addClass('active')
+		 $("#add_type").change(function() {
+			 console.log('改变');
+			 if($("#add_type").val() == 8) {
+			 $('#add_min_label').text('累计天数');
+			 $('#add_max_form').hide();
+			 } else {
+			 $('#add_min_label').text('起始天数');
+			 $('#add_max_form').show();
+			 }
+			 })
+		 })();	
+
+function openAddFormModal() {
+	$('#add_coin').val(0)
+		$('#add_mix').val(0)
+		$('#add_max').val(0)
+		$('#add_type').val(7)
+		$('#addFormModal').modal('show');
+	$('.modal-backdrop').addClass('fade');
+}
+
+function add_submit() {
+	$.ajax({
+type: 'post',
+url: "{:U('Admin/Coinrule/ajax_add')}",
+data: {
+type: $('#add_type').val(),
+coin: $('#add_coin').val(),
+min: $('#add_min').val(),
+max: $('#add_max').val(),
+},
+dataType: "json",
+async: false,
+success: function (res) {
+switch (res.code) {
+case -2:
+alert('创建失败!')
+break;
+case 0:
+alert('缺失必要参数!')
+break;
+case 2:
+alert('创建成功!')
+	window.location.reload();
+break;
+}
+}
+})
+}
+
+function del_submit(id) {
+	if (confirm('确认删除')) {
+		$.ajax({
+type: 'post',
+url: "{:U('Admin/Coinrule/ajax_del')}",
+data: {
+id: id
+},
+dataType: "json",
+async: false,
+success: function (res) {
+switch (res.code) {
+case -2:
+alert('删除失败!')
+break;
+case 0:
+alert('缺失必要参数!')
+break;
+case 2:
+alert('删除成功!')
+window.location.reload();
+break;
+}
+}
+})
+}
+} 
+
+function openUpdFormModal(k, v) {
+	let key = k.split(',')	
+		let value = v.split(',')
+		for(let i = 0; i < key.length ;i++ ) {
+			if(key[i] == 'id') {
+				 $('#updFormModal').attr('key', value[i]);
+				continue;
+			}
+			if(key[i] == 'type' && value[i] == 8) {
+				$('#upd_max_form').hide()
+				$('#upd_min_label').text('累计天数')
+			} else if(key[i] == 'type' && value[i] == 7){
+				$('#upd_max_form').show()
+                                $('#upd_min_label').text('起始天数')
+			}
+			$('#upd_' + key[i]).val(value[i])
+		}
+	$('#updFormModal').modal('show');
+	$('.modal-backdrop').addClass('fade');
+}
+
+
+function upd_submit() {
+	let id = $('#updFormModal').attr('key')
+		$.ajax({
+type: 'post',
+url: "{:U('Admin/Coinrule/ajax_upd')}",
+data: {
+id: id,
+coin:  $('#upd_coin').val(),
+min:  $('#upd_min').val(),
+max:  $('#upd_max').val(),
+
+},
+dataType:"json",
+async:false,
+success: function(res) {
+switch(res.code) {
+case -2:
+alert('更新失败!')
+break;
+case 0:
+alert('缺失必要参数!')
+break;
+case 2:
+alert('更新成功!')
+	window.location.reload();
+break;
+}
+}
+})
+}
+
+</script>

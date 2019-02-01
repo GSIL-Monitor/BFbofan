@@ -1,0 +1,243 @@
+<head>
+    <meta charset="utf-8"/>
+    <title>{:L('newworld_admin')}</title>
+    <meta name="keywords" content="{:L('newworld_admin')}"/>
+    <meta name="description" content="{:L('newworld_admin')}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- basic styles -->
+    <link href="__PUBLIC__/Admin//admin/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/font-awesome.min.css"/>
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/font-awesome-ie7.min.css"/>
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/jquery-ui-1.10.3.custom.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/chosen.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/datepicker.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/bootstrap-timepicker.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/daterangepicker.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/colorpicker.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/colorbox.css"/>
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace-skins.min.css"/>
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/ace-ie.min.css"/>
+    <![endif]-->
+
+    <!-- inline styles related to this page -->
+    <!--[if !IE]> -->
+
+    <script src="__PUBLIC__/Admin/admin/js/jquery-2.0.3.min.js"></script>
+
+    <!-- <![endif]-->
+    <!-- ace settings handler -->
+
+    <script src="__PUBLIC__/Admin//admin/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/Admin//admin/js/html5shiv.js"></script>
+    <script src="__PUBLIC__/Admin//admin/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body style='background:#fff;'>
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            积分规则管理
+            <small><i class="icon-double-angle-right"></i>
+                基本规则管理
+            </small>
+
+        </h1>
+    </div>
+
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal" action="{:U('Admin/Module/offer_edit')}" method="POST" role="form"
+                  enctype="multipart/form-data">
+                <h2>帖子浏览数积分设置</h2>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">帖子浏览数达到量</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_num0" value="<?php echo $coinrulelist[0]['s_coinrule_num']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">帖子浏览数达到量所得积分</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_setcoin0" value="<?php echo $coinrulelist[0]['s_coinrule_setcoin']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <h2>发布问答积分设置</h2>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">群人数达到量</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_num1" value="<?php echo $coinrulelist[1]['s_coinrule_num']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">每达到群人数所扣积分</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_setcoin1" value="<?php echo $coinrulelist[1]['s_coinrule_setcoin']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <h2>发布提供指导积分设置</h2>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">群人数达到量</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_num2" value="<?php echo $coinrulelist[2]['s_coinrule_num']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">每达到群人数所扣积分</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_setcoin2" value="<?php echo $coinrulelist[2]['s_coinrule_setcoin']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <h2>发布请求指导积分设置</h2>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">群人数达到量</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_num3" value="<?php echo $coinrulelist[3]['s_coinrule_num']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">每达到群人数所扣积分</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_setcoin3" value="<?php echo $coinrulelist[3]['s_coinrule_setcoin']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <h2>发布项目设置</h2>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">活跃人数达到量</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_num4" value="<?php echo $coinrulelist[4]['s_coinrule_num']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">每达到活跃人数所扣积分</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_setcoin4" value="<?php echo $coinrulelist[4]['s_coinrule_setcoin']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <h2>我是专业人士设置</h2>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">活跃人数达到量</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_num5" value="<?php echo $coinrulelist[5]['s_coinrule_num']?>" style="width:300px;"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-1">每达到活跃人数所扣积分</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="s_coinrule_setcoin5" value="<?php echo $coinrulelist[5]['s_coinrule_setcoin']?>" style="width:300px;"/>
+                    </div>
+                </div>
+
+                <div class="form-actions center">
+                    <a class="btn btn-sm btn-success" onclick="set()">
+                        <i class="icon-edit bigger-110"></i>
+                        {:L('User_user_list_comfirm_update')}
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<!-- /.page-content -->
+<style type="text/css" media="screen">
+    .btn-xs {
+        margin-right: 10px !important;
+    }
+</style>
+
+<script src="__PUBLIC__/Admin/admin/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/moment.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/daterangepicker.min.js"></script>
+
+
+<!-- ajax 提交表单 -->
+
+<script type="text/javascript" language="javascript" src="__PUBLIC__/Admin/admin/js/jquery.tan.js"></script>
+<script type="text/javascript" language="javascript" src="__PUBLIC__/Admin/admin/js/jquery.form.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/moment.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/daterangepicker.min.js"></script>
+<script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+<script>
+
+
+    function set() {
+        $.ajax({
+            type:"post",
+            url:"{:U('Admin/Coinrule/ajax_coinrule_base_set')}",
+            data:{
+                s_coinrule_num0:$("#s_coinrule_num0").val(),
+                s_coinrule_setcoin0:$("#s_coinrule_setcoin0").val(),
+                s_coinrule_num1:$("#s_coinrule_num1").val(),
+                s_coinrule_setcoin1:$("#s_coinrule_setcoin1").val(),
+                s_coinrule_num2:$("#s_coinrule_num2").val(),
+                s_coinrule_setcoin2:$("#s_coinrule_setcoin2").val(),
+                s_coinrule_num3:$("#s_coinrule_num3").val(),
+                s_coinrule_setcoin3:$("#s_coinrule_setcoin3").val(),
+                s_coinrule_num4:$("#s_coinrule_num4").val(),
+                s_coinrule_setcoin4:$("#s_coinrule_setcoin4").val(),
+                s_coinrule_num5:$("#s_coinrule_num5").val(),
+                s_coinrule_setcoin5:$("#s_coinrule_setcoin5").val(),
+            },
+            dataType:"json",
+            success: function(list){
+
+                if (list.str = 1){
+                    layer.msg(list.msg,{
+                            time:1500,
+                            icon:1,
+                        },function () {
+                            location.reload()
+                        }
+                    );
+                }else{
+                    layer.msg(list.msg,{
+                            time:1500,
+                            icon:2,
+                        }
+                    );
+                }
+
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown){
+
+                layer.msg("{:L('Mark_mark_list_error')}",{
+                        time:1500,
+                        icon:2,
+                    }
+                );
+            }
+
+        })
+
+    }
+
+
+</script>
+
+
+
+
+
+
+
+

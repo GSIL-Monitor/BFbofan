@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Released to provide counseling</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/register.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Donation.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/GroupDetailsRelease.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/CreateInterest.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/releasePosition.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Crumbsnav.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/common.css">
+    <style>
+    input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
+        -webkit-appearance: none !important;
+        margin: 0; 
+    }
+    .FormContainer:nth-child(7) .label_img img{
+        width: auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="web">
+        <!-- logo -->
+        <header class="container">
+            <include file = "./World/Index/View/Public/head.html"/>
+            </header>
+            <hr>
+        <!-- Crumbs nav -->
+        <div class="container crumbs">
+            <a href="{:U('Index/Academic/academic')}" class="crumbsa">Academic</a>
+            <cite class="Icon"></cite>
+            <a href="{:U('Index/Academic/academicGroups')}&cid={$cid}" class="crumbsa">{$crowdone['crowd_name']}</a>
+            <cite class="Icon"></cite>
+            <span class="crumbsTitle">Released to provide counseling</span>
+        </div>
+        <!-- Forget the password form -->
+        <form class="layui-form layui-form-pane section" action="">
+            <div class="PasswordContainer">
+                <div class="StepContainer">
+                    <div class="StepContainerOne">
+                        <div class="InterestTitle">
+                            <h3 class="text-center Interesth3">
+                                Information
+                            </h3>
+                        </div>
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/03_academic/academic_fabu_icon_01.png" alt="">
+                                </div>
+                                <!-- <span class="PersonIcon"></span> -->
+                                <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span>
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="text" name="number" lay-verify="required" autocomplete="off" id="name" placeholder="Enter your real name" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/03_academic/academic_fabu_icon_02.png" alt="">
+                                </div>    
+                                 <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span> 
+                                <!-- <span class="talkIcon"></span> -->
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="text" name="number" lay-verify="required" autocomplete="off" id="contact" placeholder="Enter your preferred contact information" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing" style="background: transparent;border: none;margin-top: 10px;">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_create_icon_04.png" alt="">
+                                </div>
+
+
+                                <!-- <span class="HeadPortraitIcon"></span> -->
+                            </label>
+                            <div class="UserHeadImage layui-input-block" style="margin-left: 10px;">
+                                <img id="pic" class="img">
+                                <input id="upload" class="but" name="file" accept="image/*" type="file"><span>Upload your photo (optional)</span>
+                            </div>
+                            <div class="msg" style="display: none;"></div>
+                        
+                        </div>
+                        <div class="InterestTitle">
+                            <!--<h3 class="text-center Interesth3">
+                                    Demand Information
+                            </h3>-->
+                        </div>
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_01.png" alt="">
+                                </div>
+                                <!-- <span class="TitlesIcon"></span> -->
+                                   <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span> 
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="text" name="number" lay-verify="required" autocomplete="off" id="title" placeholder="Enter the title" class="layui-input">
+                            </div>
+                        </div>
+    
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_icon_xs.png" alt="">
+                                </div>
+                                   <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span> 
+                                <!-- <span class="MoneyIcon"></span> -->
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="number" name="number" lay-verify="required" autocomplete="off" id="price" placeholder="Enter the price" class="layui-input">
+                            </div>
+                        </div>
+    
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/03_academic/academic_fabu_icon_06.png" alt="">
+                                </div>
+                                <!-- <span class="TimesIcon"></span> -->
+                                   <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span> 
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="number" name="number" lay-verify="required" autocomplete="off" id="time" placeholder="Available tutor time" class="layui-input" >
+                            </div>
+                           
+                              <!-- <div class="layui-input-block input-spacing inputW">
+                                   <input type="text"  readonly   name="number" id="item" lay-verify="required" autocomplete="off"  placeholder="Date of birth(xx/xx/xxxx)" class="layui-input Wtime">
+                               </div> -->
+                        </div>
+
+
+
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/03_academic/academic_create_icon_01.png" alt="">
+                                </div>
+                                   <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span> 
+                                <!-- <span class="TimesIcon"></span> -->
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="text" name="number" lay-verify="required" autocomplete="off" id="dat_time" placeholder="Your Info will be deleted on the date " class="layui-input Wtime" >
+                            </div>
+                             <div style="width: 176px;" >
+                                <input type="checkbox" value="1" name="number" lay-verify="required" autocomplete="off" id="price" placeholder="Enter the price" class="layui-inputc">&nbsp;&nbsp;&nbsp;Unlimited
+                            </div> 
+                              <!-- <div class="layui-input-block input-spacing inputW">
+                                   <input type="text"  readonly   name="number" id="item" lay-verify="required" autocomplete="off"  placeholder="Date of birth(xx/xx/xxxx)" class="layui-input Wtime">
+                               </div> -->
+                        </div>
+                        
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_03.png" alt="">
+                                </div>
+                                   <span style="color: red; position: relative;left: 23px;bottom: 16px;">*</span> 
+                                <!-- <span class="ContentsIcon"></span> -->
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="text" name="number" lay-verify="required" autocomplete="off" id="content" placeholder="Describe yourself and requirement" class="layui-input">
+                            </div>
+                        </div>
+    
+                        <div class="FormContainer" pane>
+                                <label class="layui-form-label label-spacing">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_03.png" alt="">
+                                    </div>
+                                    <!-- <span class="ContentsIcon"></span> -->
+                                </label>
+                                <div class="layui-input-block input-spacing inputW">
+                                    <input type="text" name="number" autocomplete="off" id="explain" placeholder="Special requirement (optional)" class="layui-input">
+                                </div>
+                            </div>
+                        <div class="FormContainer from-but">
+                            <button class="layui-btn layui-btn-normal layui-btn-radius Submit-but" lay-submit="demo1" lay-filter="demo1">
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!-- footer -->
+        <footer class="footer">
+            <include file = "./World/Index/View/Public/footer.html"/>
+        </footer>
+
+    </div>
+    <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+    <script src="__PUBLIC__/Web/web/js/GroupDetailsRelease.js"></script>
+    <script src="__PUBLIC__/Web/web/js/CreateInterest.js"></script>
+    <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+</body>
+
+<script>
+
+     layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        
+        //执行一个laydate实例
+        laydate.render({
+            elem: '.Wtime', //指定元素
+            lang:'en',
+        });
+        });
+    $("input[type='number']").on("blur",function(){
+        var input_num = $(this).val();
+        var patrn=/^([1-9]\d*|0)(\.\d*[1-9])?$/; 
+        if (!patrn.exec(input_num)){
+            $(this).val("")
+        } else{
+            
+        }
+    })
+    layui.use('form', function(){
+        var form = layui.form;
+
+        form.on('submit(demo1)', function(data1){
+
+            var file_obj = document.getElementById('upload').files[0];
+
+            var fd = new FormData();
+            if (file_obj){
+                fd.append('img', file_obj);
+            }
+            fd.append('cid', '{$cid}');
+            fd.append('name', $("#name").val());
+            fd.append('contact', $("#contact").val());
+            fd.append('title', $("#title").val());
+            fd.append('price', $("#price").val());
+            fd.append('time', $("#time").val());
+            fd.append('dat_time',$("#dat_time").val())
+            fd.append('content', $("#content").val());
+            fd.append('explain', $("#explain").val());
+
+            var str = ''
+        $("input[type='checkbox']:checked").each(function(i, n){ 
+             var id = $(this).val();
+            str +=id+','
+         });
+            fd.append('str',str);
+            $.ajax({
+                url: "{:U('Index/Ajax/ajax_createCounseling')}",
+                type: "POST",
+                async: false,
+                cache: false,
+                processData: false,// 告诉jQuery不要去处理发送的数据
+                contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                data: fd,
+                dataType:"json",
+                success: function(data){
+                    //console.log(data)
+                    if (data.str == 1){
+                        layer.msg('发布成功',{
+                                time:1500,
+                                icon:1,
+                            },function () {
+                            window.location.href="{:U('Index/Academic/provideCounsellingDetails')}&tid="+data.id+"&cid="+data.cid;
+                            }
+                        );
+
+
+                    }else{
+                        layer.msg(data.msg,{
+                                time:1500,
+                                icon:2,
+                            }
+                        );
+                    }
+
+                },
+                error: function(err) {
+
+                    layer.msg('请求失败!',{
+                            time:1500,
+                            icon:2,
+                        }
+                    );
+                }
+            });
+
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+    });
+
+
+</script>
+
+
+</html>

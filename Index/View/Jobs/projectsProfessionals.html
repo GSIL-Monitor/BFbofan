@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projects and professionals</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/register.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/JobList.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Crumbsnav.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/WorkList.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/common.css">
+    <style>
+        .layui-form-label span img{
+            /* width: 24px; */
+            height: 24px;
+        }
+        button:focus{
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="web">
+        <!-- logo -->
+        <header class="container">
+            <include file = "./World/Index/View/Public/head.html"/>
+        </header>
+        <hr>
+        <!-- Crumbs nav -->
+        <div class="container crumbs">
+            <a href="{:U('Index/Jobs/work')}" class="crumbsa">Jobs</a>
+            <cite class="Icon"></cite>
+            <span class="crumbsTitle">Item Lists</span>
+        </div>
+        <div class="layui-tab layui-tab-brief section" lay-filter="docDemoTabBrief">
+            <ul class="layui-tab-title container" style="border: none;padding-left: 4%;">
+                <li <if condition="empty($_GET['type'])">class="layui-this"</if>>Project</li>
+                <li <if condition="!empty($_GET['type'])">class="layui-this"</if>>Specialist</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item <if condition='empty($_GET[type])'>layui-show</if>">
+                    <div class="container">
+                        <div class="butbox">
+                            <a href="{:U('Index/Jobs/releaseProject')}" class="layui-btn layui-btn-normal layui-btn-radius fontcss">Publish project</a>
+                            <a href="{:U('Jobs/MyProject')}" class="layui-btn layui-btn-normal layui-btn-radius fontcss">My project</a>
+                        </div>
+                        <div class="frombox">
+                            <form method="get" action="">
+                                <input name="c" type="hidden" value="{$Think.CONTROLLER_NAME}"/>
+                                <input name="m" type="hidden" value="{$Think.MODULE_NAME}"/>
+                                <input name="a" type="hidden" value="{$Think.ACTION_NAME}"/>
+                                <input name="type" type="hidden" value="0"/>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label">
+                                    <span><img src="__PUBLIC__/Web/web/img/04_jobs/jobs_create_icon_city.png"></span>
+                                </label>
+                                <div class="fromboxxiala">
+                                    <select name="item_city" lay-verify="required">
+                                        <option value="0">Select a city</option>
+                                        <foreach name="city" item="c">
+                                            <option value="{$c['second_mark_name']}">{$c['second_mark_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label">
+                                    <span><img src="__PUBLIC__/Web/web/img/04_jobs/jobs_create_icon_industry.png"></span>
+                                </label>
+                                <div class="fromboxxiala">
+                                    <select name="item_specialty" lay-verify="required">
+                                        <option value="0">Select industry</option>
+                                        <foreach name="specialty" item="c">
+                                            <option value="{$c['second_mark_name']}">{$c['second_mark_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label" style="display: inline;">
+                                    <span><img src="__PUBLIC__/Web/web/img/04_jobs/jobs_create_icon_porjetname.png"></span>
+                                </label>
+                                <div class="fromboxxiala">
+                                    <input type="text" name="k" value="{$_GET['k']}" required lay-verify="required" placeholder="Enter the project name" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label" style="display: inline;">
+                                </label>
+                                <div class="fromboxxiala">
+                                    <button class="from_img" style="border: none;background: none">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_search_icon.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container ContributionContainer">
+                            <div class="row">
+                                <div class="col-md-12 UserBox_list">
+                                    <foreach name="items" item="i">
+                                    <div class="UserBox">
+                                        <a href="{:U('Jobs/ProjectDetails',['item_id'=>$i['item_id']])}" class="UserLink">
+                                            <p style="float: left;margin-right: 14px;">
+                                                <img src="<if condition='$i[user_icon]'>./Uploads/{$i['user_icon']}<else />__PUBLIC__/Web/web/img/01_shouye/UserPic.png</if>" style="width: 84px;height: 84px;margin-bottom: 54px;border-radius: 50%;">
+                                            </p>
+                                            <p class="lintpheight">
+                                                Name : {$i['item_name']}
+                                            </p>
+                                            <p class="lintpheight">
+                                                Description :
+                                            </p>
+                                            <p class="lintpheight">
+                                                {$i['item_content']}
+                                            </p>
+                                            <p class="lintpheight text-right" style="color: #ccc;justify-content: flex-end;">
+                                                {$i['item_createtime']}
+                                            </p>
+                                        </a>
+                                    </div>
+                                    </foreach>
+                                </div>
+                                
+                            </div>
+                    </div>
+                    <div class="container" id="NumberOfPagesContainer">
+                        {$page}
+                    </div>
+                </div>
+                <div class="layui-tab-item <if condition='!empty($_GET[type])'>layui-show</if>">
+                    <div class="container">
+                        <div class="butbox">
+                            <if condition="$userid">
+                                <a href="{:U('Jobs/ReleaseProfessional',['professional_uid'=>$userid])}" class="layui-btn layui-btn-normal layui-btn-radius fontcss">I'm an specialist</a>
+                            </if>
+                        </div>
+                        <div class="frombox">
+                            <form method="get" action="">
+                                <input name="c" type="hidden" value="{$Think.CONTROLLER_NAME}"/>
+                                <input name="m" type="hidden" value="{$Think.MODULE_NAME}"/>
+                                <input name="a" type="hidden" value="{$Think.ACTION_NAME}"/>
+                                <input name="type" type="hidden" value="1"/>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label">
+                                    <span><img src="__PUBLIC__/Web/web/img/04_jobs/jobs_create_icon_city.png"></span>
+                                </label>
+                                <div class="fromboxxiala">
+                                    <select name="professionals_city" lay-verify="required">
+                                        <option value="0">Select a city</option>
+                                        <foreach name="city" item="c">
+                                            <option value="{$c['second_mark_name']}">{$c['second_mark_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label">
+                                    <span><img src="__PUBLIC__/Web/web/img/04_jobs/jobs_create_icon_major.png"></span>
+                                </label>
+                                <div class="fromboxxiala">
+                                    <select name="professionals_specialties" lay-verify="required">
+                                        <option value="0">Select a specialties</option>
+                                        <foreach name="specialties" item="c">
+                                            <option value="{$c['second_mark_name']}">{$c['second_mark_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label">
+                                    <span><img src="__PUBLIC__/Web/web/img/04_jobs/jobs_create_icon_industry.png"></span>
+                                </label>
+                                <div class="fromboxxiala">
+                                    <select name="professionals_industry" lay-verify="required">
+                                        <option value="0">Select a industry</option>
+                                        <foreach name="industry" item="c">
+                                            <option value="{$c['second_mark_name']}">{$c['second_mark_name']}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="SelectionTypeContainer">
+                                <label class="layui-form-label" style="display: inline;">
+                                </label>
+                                <div class="fromboxxiala">
+                                    <button class="from_img" style="border: none;background: none">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_search_icon.png" alt="">
+                                    </button>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="container ContributionContainer">
+                        <div class="row">
+                            <div class="col-md-12 UserBox_list">
+                                <if condition="$professionals">
+                                <foreach name="professionals" item="p">
+                                <div class="UserBox">
+                                    <a href="{:U('Jobs/ProfessionalDetails',['professional_id'=>$p['professional_id']])}" class="UserLink">
+                                        <p style="float: left;margin-right: 14px;">
+                                            <img src="<if condition='$p[user_icon]'>./Uploads/{$p['user_icon']}<else />__PUBLIC__/Web/web/img/01_shouye/UserPic.png</if>" style="width: 84px;height: 84px;margin-bottom: 54px;border-radius: 50%;">
+                                        </p>
+                                        <p class="lintpheight">
+                                            Name : {$p[professional_uname]}
+                                        </p>
+                                        <p class="lintpheight">
+                                            Description :
+                                        </p>
+                                        <p class="lintpheight">
+                                            {$p[professional_content]}
+                                        </p>
+                                        <p class="lintpheight text-right" style="color: #ccc;">
+                                            {$p[professional_createtime]}
+                                        </p>
+                                        <p class="lintpheight text-right" style="color: #ccc;">
+                                            <img src="__PUBLIC__/Web/web/img/04_jobs/jobs_zyrslb_icon_pl.png">
+                                            {$p[professional_comment]}
+                                        </p>
+                                    </a>
+                                </div>
+                                </foreach>
+                                </if>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container" id="NumberOfPagesContainer">
+                        {$professionals_page}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- foot start 底部信息 -->
+        <footer class="footer">
+            <include file = "./World/Index/View/Public/footer.html"/>
+        </footer>
+        <!-- foot end 底部信息 -->
+
+    </div>
+    <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+    <script src="__PUBLIC__/Web/web/js/ListOfDonations.js"></script>
+    <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+</body>
+
+<script>
+
+    function loginout() {
+
+        $.ajax({
+            type:"post",
+            url:"{:U('Index/Ajax/ajax_loginout')}",
+            data:{
+
+            },
+            dataType:"json",
+            async:false,
+            success: function(data){
+                if (data!=null&&data!="") {
+                    if (data.str == 1) {
+                        layer.msg(data.msg,{
+                                time:1500,
+                                icon:1,
+                            },function () {
+                                location.reload();
+                            }
+                        );
+                    }else{
+                        layer.msg(data.msg,{
+                                time:1500,
+                                icon:2,
+                            }
+                        );
+                    }
+
+                }else{
+                    layer.msg('请求错误!',{
+                            time:1500,
+                            icon:2,
+                        }
+                    );
+                }
+
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown){
+
+                layer.msg('请求失败!',{
+                        time:1500,
+                        icon:2,
+                    }
+                );
+            }
+
+        })
+
+    }
+</script>
+
+</html>

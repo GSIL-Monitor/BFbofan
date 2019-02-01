@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Post Sharing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/register.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Donation.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/PostSharing.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+
+    <meta name="keywords" content="командная, командная игра, командная онлайн, онлайнкомандная игра, играть онлайн, играть онлайн в команде, битва, сражения, командныйбой, 3D командная игра скачать, скачать бесплатно, играть бесплатно, бесплатнаяонлайн игра, война, командная игра для мобильных, командная android, команднаяios, многопользовательская игра, pvp, pvp онлайн, пвп, пвп онлайн, пвпмобильная, pvp мобильная, арена, pvp arena, пвп арена, дота, dota, doat, dotaempire, heroes, anime, герои, аниме, storm age, hot"  />
+
+    <meta property="og:url" content="{$nowurl}"/>
+
+    <meta property="og:type" content="article"/>
+
+    <meta property="og:title" content="{$noteone['note_name']}" />
+
+    <meta property="og:description" content="{$noteone['note_content']}" />
+
+    <meta property="og:image" content="https://newworld-platform.com/Public/Web/web/img/nw_shar.png"/>
+    <!--<meta property="og:image" content="https://newworld-platform.com/Uploads/{$vilist[0]['note_vi_url']}"/>-->
+    <meta property="og:image:width" content="700">
+    <meta property="og:image:height" content="350">
+
+
+
+</head>
+
+<body>
+    <!-- logo -->
+    <header class="container">
+        <include file = "./World/Index/View/Public/head.html"/>
+    </header>
+    <hr>
+    <!-- Forget the password form -->
+    <form class="layui-form layui-form-pane" action="">
+        <div class="PasswordContainer">
+            <p class="PostSharingbtext">
+                {$noteone['note_name']}</br>
+                {$noteone['note_content']}
+            </p>
+            <foreach name="vilist" item="vi" key="vikey">
+                <if condition='$vi["note_vi_type"]==1'>
+                    <p>
+                        <img src="./Uploads/{$vi['note_vi_url']}" class="imgs">
+                    </p>
+                </if>
+                <if condition='$vi["note_vi_type"]==2'>
+                    <div class="picfenxiangbox">
+                        <a href="{:U('Index/Academic/videoFen')}">
+                            <img src="__PUBLIC__/Web/web/img/02_interest/picfenxiang.png" class="picfenxiang">
+                        </a>
+                    </div>
+                    <video class="imgs" controls preload="auto">
+                        <source src="./Uploads/{$vi['note_vi_url']}" type="video/mp4">
+                    </video>
+                </if>
+            </foreach>
+            <hr>
+            <p class="text-right PostSharingbut">
+                <a class="layui-btn layui-btn-normal layui-btn-radius" href="javascript:window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(document.referrer),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=800, height=600,top=100,left=350');void(0)">Facebook</a>
+                
+                <a class="layui-btn layui-btn-normal layui-btn-radius" href="javascript:window.open('http://twitter.com/home?status='+encodeURIComponent(document.location.href)+' '+encodeURIComponent(document.title),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)">Twitter</a>
+                <a class="layui-btn layui-btn-normal layui-btn-radius" href="javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&url='+encodeURIComponent(document.location.href)+'&title='+encodeURIComponent(document.title)+'&source='+encodeURIComponent(document.location.href),'_blank','toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=600, height=450,top=100,left=350');void(0)">LinkedIn</a>
+            </p>
+            <p style="margin-top: 10px;text-align: right">{$nowurl}</p>
+
+        </div>
+    </form>
+    <!-- foot start 底部信息 -->
+    <footer class="container-fluid PostSharingfooter">
+        <p class="text-center">&copy; 2018 NewWorld. All rights reserved.</p>
+    </footer>
+    <!-- foot end 底部信息 -->
+    <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+    <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+</body>
+<script>
+
+console.log(document.referrer)
+
+</script>
+</html>

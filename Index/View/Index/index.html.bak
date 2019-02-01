@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/index.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/iconfont.css">
+    <style>
+        .rtable tr td span img{
+            width: 16px;
+            height: 17px;
+        }
+        .ProposalContainer .TitleContainer img{
+            width: 16px;
+            height: 16px;
+        }
+
+        
+        .cleck {
+
+           float:left;
+            
+          font-size: 20px;
+        margin-top: 16px;
+         margin-left: 25px;
+         color:#56c9be ;
+
+        }
+        
+        .sign{
+            float:left;
+            margin-left: 321px;
+            margin-top: 20px;
+
+        }
+
+    .sign_up{
+        clear:both;
+        margin-top: 24px;
+        margin-left:-52px;
+    }
+    
+    .day{
+        
+           font-size: 18px;
+    margin-left: 203px;
+    margin-top: -52px;
+    margin-bottom: 49px;
+    
+    }
+
+    .apr{
+            font-size: 18px;
+    margin-left: 171px;
+    margin-top: -41px;
+    }
+
+    .eleck{
+   text-align:center;
+    border:2px solid #56c9be;
+padding:10px 40px; 
+background:white;
+width:156px;
+border-radius:25px;
+    margin-left: 338px;
+    margin-top: -57px;
+    }
+
+    .ops{
+        margin-top: 51px;
+    }
+
+    .tooltip_box {
+     position: absolute;
+    top: 424px;
+    /* left: 100px; */
+    right: 7%;
+    width: 350px;
+    height: 100px;
+    /* background: #088cb7; */
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 14px #cecece;
+    padding: 15px;
+    display: none;
+    background: #fff;
+    z-index: 10000;
+}
+    </style>
+</head>
+
+<body>
+    <div class="web">
+        <!-- Head information start 头信息 -->
+        <div class="container headerBox">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="#" class="logo" title="logo"></a>
+                </div>
+
+                <div class="col-md-6">
+                    <include file = "./World/Index/View/Public/head.html"/>
+                    <div class="nav">
+                        <nav class="navbar NavBg">
+                            <ul class="ListInline">
+                                <li><a href="{:U('Index/Index/index')}" id="NavSelected">Home</a></li>
+                                <li><a href="{:U('Index/Rnterst/interest')}" >Interest</a></li>
+                                <li><a href="{:U('Index/Academic/academic')}">Academy</a></li>
+                                <li><a href="{:U('Index/Jobs/work')}">Jobs</a></li>
+                                <li><a href="{:U('Index/Life/life')}">Life</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Head information end 头信息 -->
+        <!-- Carousel advertising start 轮播广告 -->
+        <div class="layui-carousel Banner" id="test2">
+            <div carousel-item="">
+                <foreach name="newslist" item="new" key="newkey">
+                <div class="Carousel_img">
+                    <a target="_blank" href="<if condition='$new["news_type"] == 1'>{:U('Index/Index/newsDetails',array('nid'=>$new['news_id']))}<else />{$new['news_url']}</if>">
+                        <img src="./Uploads/{$new['news_img']}">
+                    </a>
+                </div>
+                </foreach>
+
+            </div>
+        </div>
+        
+                <!--    <div >
+                        <a class="Help_tip">
+                              <img   src="__PUBLIC__/Web/web/img/01_shouye/share.png">
+                        </a>
+                        <div class="tooltip_box" style="margin-left:807px;" >
+                            <span>“.”</span>
+                        </div>
+                   </div> -->
+                      <div class="text-right Help">
+                                <a class="Help_tip " href="{:U('Index/Academic/postSharing')}&nid={$noteone['note_id']}">
+                                    <img style="margin-left: 1166px;position: relative;bottom: 9px;right: 69px;width: 25px;height: 29px; " src="__PUBLIC__/Web/web/img/02_interest/fenxiang.png">
+                                </a>
+                                <div class="tooltip_box">
+                                    <span> {$offer['s_offer_content']}</span>
+                                </div>
+                            </div>
+                
+                  <!--  <p class="text-right Help" style="position: relative;bottom: 5px;right: 113px;" >
+                        <a href="{:U('Index/Academic/postSharing')}&nid={$noteone['note_id']}">
+                            <img src="__PUBLIC__/Web/web/img/02_interest/fenxiang.png" style="width: 25px;height: 29px;">
+                        </a>
+                        <div class="tooltip_box">
+                                  <span>  Share the NewWorld to friends, you will earn New Coins after they sign up</span>
+                        </div>
+                    </p> -->
+        </div>
+        <!-- Carousel advertising end 轮播广告 -->
+        <div class="section">
+            <!-- Honor list start 荣誉榜 -->
+            <div class="container">
+                <div class="title_Icons">
+                    <div class="title_Icons_box">
+                        <div class="title_ICon_pic">
+                            <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_title_icon_01.png">
+                        </div>
+                        <div class="title_ICon_con">
+                            HONOR LIST
+                        </div>
+                    </div>
+                    <div class="title_Icons_line">
+                        <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_title_fgx.png">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="layui-tab layui-tab-brief" id="ListContainer" lay-filter="docDemoTabBrief">
+                            <ul class="layui-tab-title">
+                                <li class="layui-this" title="Donation will improve your ranking">Ranking</li>
+                                <li title="Your current amount of New Coins">Wealth</li>
+                                <li title="NewCoins you spend">Contribution</li>
+                                <a href="{:U('Index/Index/honoraryEdition')}" class="More">
+                                    <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_icon_c_more_n.png">
+                                </a>
+                            </ul>
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show">
+
+                                  <div class="layui-form">
+                                      <table class="layui-table rtable">
+                                          <tbody>
+                                          <foreach name="expenditure" item="e" key="k">
+                                              <tr onclick="gohome({$e['user_id']})" style="cursor: pointer">
+                                                  <td style="width: 33%">
+                                                      <span>
+                                                          <if condition='$userranklist[0]["u_rank_money"] elt $e["user_outmoney"]'>
+
+                                                              <img src="__PUBLIC__/Web/web/img/01_shouye/diamond.png">
+                                                          </if>
+                                                              <if condition='$userranklist[1]["u_rank_money"] elt $e["user_outmoney"]&&$e["user_outmoney"] lt $userranklist[0]["u_rank_money"]'>
+
+                                                              <img src="__PUBLIC__/Web/web/img/01_shouye/gold.png">
+                                                              </if>
+                                                              <if condition='$userranklist[2]["u_rank_money"] elt $e["user_outmoney"]&&$e["user_outmoney"] lt $userranklist[1]["u_rank_money"]'>
+                                                                  <img src="__PUBLIC__/Web/web/img/01_shouye/sliver.png">
+                                                              </if>
+                                                                  <if condition='$userranklist[3]["u_rank_money"] elt $e["user_outmoney"]&&$e["user_outmoney"] lt $userranklist[2]["u_rank_money"]'>
+                                                                      <img src="__PUBLIC__/Web/web/img/01_shouye/bronze.png">
+                                                                  </if>
+                                                          <if condition='$e["user_outmoney"] lt $userranklist[3]["u_rank_money"]'>
+                                                                      <img src="__PUBLIC__/Web/web/img/01_shouye/common.png">
+                                                                  </if>
+                                                          <!-- <switch name="k" >
+                                                              <case value="0" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_01.png"></case>
+                                                              <case value="1" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_02.png"></case>
+                                                              <case value="2" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_03.png"></case>
+                                                              <default /><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_04.png">
+
+                                                          </switch> -->
+                                                            <!--<img src="{$e['level_icon']}">-->
+                                                          &nbsp;&nbsp;{$k+1}st
+                                                      </span>
+                                                  </td>
+                                                  <td style="width: 33%">
+                                                      <img src="<if condition='$e["user_icon"]'>./Uploads/{$e['user_icon']}<else />__PUBLIC__/Web/web/img/01_shouye/UserPic.png</if>" class="img-circle"> &nbsp;&nbsp;{$e['user_name']}
+                                                  </td>
+                                                  <td></td>
+
+                                                 <!-- <td>{$e['user_outmoney']}<img style="width:19px;height:17;" src="/Public/Web/web/img/vcoin2.png" ></td>-->
+                                              </tr>
+                                          </foreach>
+
+                                          </tbody>
+                                      </table>
+                                  </div>
+
+                                </div>
+                                <div class="layui-tab-item">
+
+                                  <div class="layui-form">
+                                      <table class="layui-table rtable">
+                                          <tbody>
+                                          <foreach name="wealth" item="w" key="k">
+                                              <tr onclick="gohome({$w['user_id']})" style="cursor: pointer">
+                                                  <td style="width: 33%">
+                                                    <span>
+
+                                                        <if condition='$userranklist[4]["u_rank_money"] elt $w["user_havecoin"]'>
+
+                                                              <img src="__PUBLIC__/Web/web/img/01_shouye/diamond.png">
+                                                          </if>
+                                                              <if condition='$userranklist[5]["u_rank_money"] elt $w["user_havecoin"]&&$w["user_havecoin"] lt $userranklist[4]["u_rank_money"]'>
+
+                                                              <img src="__PUBLIC__/Web/web/img/01_shouye/gold.png">
+                                                              </if>
+                                                              <if condition='$userranklist[6]["u_rank_money"] elt $w["user_havecoin"]&&$w["user_havecoin"] lt $userranklist[5]["u_rank_money"]'>
+                                                                  <img src="__PUBLIC__/Web/web/img/01_shouye/sliver.png">
+                                                              </if>
+                                                                  <if condition='$userranklist[7]["u_rank_money"] elt $w["user_havecoin"]&&$w["user_havecoin"] lt $userranklist[6]["u_rank_money"]'>
+                                                                      <img src="__PUBLIC__/Web/web/img/01_shouye/bronze.png">
+                                                                  </if>
+                                                          <if condition='$w["user_havecoin"] lt $userranklist[7]["u_rank_money"]'>
+                                                                      <img src="__PUBLIC__/Web/web/img/01_shouye/common.png">
+                                                                  </if>
+
+                                                        <!--<switch name="k" >
+                                                            <case value="0" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_01.png"></case>
+                                                            <case value="1" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_02.png"></case>
+                                                            <case value="2" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_03.png"></case>
+                                                            <default /><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_04.png">
+
+                                                        </switch>-->
+                                                          <!--<img src="{$w['level_icon']}">-->
+                                                        &nbsp;&nbsp;{$k+1}st
+                                                    </span>
+                                                  </td>
+                                                  <td style="width: 33%">
+                                                      <div class="img-circle">
+                                                          <img src="<if condition='$w["user_icon"]'>./Uploads/{$w['user_icon']}<else />__PUBLIC__/Web/web/img/01_shouye/UserPic.png</if>">
+                                                      </div>
+                                                      &nbsp;&nbsp;{$w['user_name']}
+                                                  </td>
+                                                 <td>{$w['user_havecoin']}  <img style="width:19px;height:17;" src="/Public/Web/web/img/vcoin2.png" ></td>
+                                              </tr>
+                                          </foreach>
+                                                                                  </tbody>
+                                      </table>
+                                  </div>
+
+                                </div>
+                                <div class="layui-tab-item">
+                                    <div class="layui-form">
+                                        <table class="layui-table rtable">
+                                            <tbody>
+
+                                            <foreach name="donate" item="d" key="k">
+                                                <tr onclick="gohome({$d['user_id']})" style="cursor: pointer">
+                                                    <td style="width: 33%">
+                                                      <span>
+<if condition='$userranklist[8]["u_rank_money"] elt $d["user_outcoin"]'>
+
+                                                              <img src="__PUBLIC__/Web/web/img/01_shouye/diamond.png">
+                                                          </if>
+                                                              <if condition='$userranklist[9]["u_rank_money"] elt $d["user_outcoin"]&&$d["user_outcoin"] lt $userranklist[8]["u_rank_money"]'>
+
+                                                              <img src="__PUBLIC__/Web/web/img/01_shouye/gold.png">
+                                                              </if>
+                                                              <if condition='$userranklist[10]["u_rank_money"] elt $d["user_outcoin"]&&$d["user_outcoin"] lt $userranklist[9]["u_rank_money"]'>
+                                                                  <img src="__PUBLIC__/Web/web/img/01_shouye/sliver.png">
+                                                              </if>
+                                                                  <if condition='$userranklist[11]["u_rank_money"] elt $d["user_outcoin"]&&$d["user_outcoin"] lt $userranklist[10]["u_rank_money"]'>
+                                                                      <img src="__PUBLIC__/Web/web/img/01_shouye/bronze.png">
+                                                                  </if>
+                                                          <if condition='$d["user_outcoin"] lt $userranklist[11]["u_rank_money"]'>
+                                                                      <img src="__PUBLIC__/Web/web/img/01_shouye/common.png">
+                                                                  </if>
+
+                                                          <!-- <switch name="k" >
+                                                              <case value="0" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_01.png"></case>
+                                                              <case value="1" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_02.png"></case>
+                                                              <case value="2" break="1"><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_03.png"></case>
+                                                              <default /><img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_hl_icon_04.png">
+
+                                                          </switch> -->
+                                                            <!--<img src="{$d['level_icon']}">-->
+                                                          &nbsp;&nbsp;{$k+1}st
+                                                      </span>
+                                                    </td>
+
+                                                    <td style="width: 33%">
+                                                        <img src="<if condition='$d["user_icon"]'>./Uploads/{$d['user_icon']}<else />__PUBLIC__/Web/web/img/01_shouye/UserPic.png</if>" class="img-circle"> &nbsp;&nbsp;{$d['user_name']}
+                                                    </td>
+                                                    <!-- <td>{$d['user_outcoin']} New Coins</td> -->
+                                                    <td>{$d['user_outcoin']}  <img style="width:19px;height:17;" src="/Public/Web/web/img/vcoin2.png" ></td>
+                                                </tr>
+                                            </foreach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="layui-tab layui-tab-brief" id="ListContainer" lay-filter="docDemoTabBrief">
+                            <div class="layui-tab-content">
+                                <div class="layui-tab-item layui-show">
+
+                                      <div class="layui-form">
+                                          <table class="layui-table rtable">
+                                              <tbody>
+                                             
+                                                  <tr onclick="gohome({$e['user_id']})" style="cursor: pointer">
+                                                    
+                                                     <!-- <td>{$e['user_outmoney']}<img style="width:19px;height:17;" src="/Public/Web/web/img/vcoin2.png" ></td>-->
+                                                  </tr>
+                                                <div class="cleck" >Cleck IN</div>
+                                                <div class="sign" onclick="sign_in_record()" >Sign in record </div>
+                                                <img  class="sign_up" src="__PUBLIC__/Web/web/img/01_shouye/sign_up.png" >
+                                                <div class="day" id="Today">Friday</div>   
+                                                <div class="apr" id="Date">April,20,2018</div>
+                                                  <if condition="$signflag.user_id eq null">
+                                                	<a onclick="sign_out()">
+                                                    		<div class="eleck">Cleck in</div>
+                                               		 </a>
+                                                	<else />
+                                                	<div class="eleck">Clecked in</div>
+                                            	</if>	
+						<div class="ops"></div>        
+                                              </tbody>
+                                          </table>
+                                      </div>
+
+                                  </div>
+                           
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>
+            <!-- Honor list end 荣誉榜 -->
+            <!-- donate start 捐赠 -->
+            <div class="container">
+
+                <div class="title_Icons">
+                        <div class="title_Icons_box">
+                            <div class="title_ICon_pic">
+                                <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_title_icon_02.png">
+                            </div>
+                            <div class="title_ICon_con">
+                                Donate
+                            </div>
+                        </div>
+                        <div class="title_Icons_line">
+                            <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_title_fgx.png">
+                        </div>
+                    </div>
+
+                <div class="row">
+                    <div class="col-xs-6 col-md-7">
+                        <table class="layui-table ListContainer" lay-skin="line">
+                            <tbody>
+                                <tr>
+                                    <td class="text-center FontColor" colspan="2">
+                                        Donate info
+                                        <p style="font-size: 15px;color:red;font-weight:normal">All donations exceeding the costs of NewWorld’s development will be donated to public welfare.</p>
+                                        <a href="javascript:void(0)" class="More" onclick="donationlist()">
+                                            <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_icon_c_more_n.png">
+                                        </a>
+                                    </td>
+                                </tr>
+
+                                <foreach name="donatelist" item="d" key="k">
+                                <tr>
+                                    <td class="FontOverflow">
+                                      Thanks for {$d['user_name']}’s donation, wish you enjoy the NewWorld
+                                    </td>
+                                    <td class="TimeColor">{$d['donation_paytime']}</td>
+                                </tr>
+                                </foreach>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <div class="DonateContainer">
+                            <h4 class="text-center FontColor">Donate</h4>
+                            <p class="Prompt">
+                                Prompt :
+                                <br> <!--After the success of donation funding platform will give you a certain amount of virtual cur -rency to you!-->{$shouofferlist[0][s_offer_content]}
+                            </p>
+                            <a href="javascript:void(0)" class="DonateBut layui-btn layui-btn-radius layui-btn-primary" onclick="godonation()">Donate</a>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-2">
+                        <div class="BannerContainer">
+                            <h4 class="text-center FontColor">Advertising</h4>
+                            <foreach name="advertisinglist" item="advertising" key="advertisingkey">
+
+                            <div class="Container1">
+                                <a target="_blank" href="{$advertising['advertising_url']}" style="text-decoration: none;display: block;">
+                                    <img src="./Uploads/{$advertising['advertising_img']}" class="img">
+                                    <p class="text-center Font">{$advertising['advertising_title']}</p>
+                                </a>
+                            </div>
+                            </foreach>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- donate end 捐赠 -->
+            <!-- advice start 建议 -->
+            <div class="container">
+                <div class="title_Icons">
+                    <div class="title_Icons_box">
+                        <div class="title_ICon_pic">
+                             <img src="__PUBLIC__/Web/web/img/01_shouye/shouye.png">
+                        </div>
+                        <div class="title_ICon_con">
+                                Advice
+                        </div>
+                    </div>
+                    <div class="title_Icons_line">
+                        <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_title_fgx.png">
+                    </div>
+                </div>
+                <!-- Modal frame stater 模态框 -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <p class="modal-header text-center">
+                          <span class="ModalTitle" id="exampleModalLabel">New message</span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      </p>
+                      <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <p class="text-center ModalTextColor">
+                                    Please submit your questions or suggestions when you are using this website, if there are any problems or which pages need improvement.
+                                </p>
+                            </div>
+                          <div class="form-group">
+                            <label for="recipient-name" class="control-label ModalFormHints">Suggested type:</label>
+                            <select class="form-control" id="proposal-type">
+
+                              <option>Select the recommended type</option>
+                                <foreach name="proposaltypelist" item="p" key="k">
+                              <option value="{$p['proposal_type_id']}">{$p['proposal_type_content']}</option>
+                                </foreach>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="message-text" class="control-label ModalFormHints">Recommendations:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-info btn-block" onclick="upproposal()">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Modal frame end 模态框 -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="ProposalImg">
+                            <a href="{$honorone['advertising_url']}" target="_blank">
+                            <img src="./Uploads/{$adviceone['advertising_img']}">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="ProposalContainer">
+                            <div class="TitleContainer">
+                                <a href="javascript:void(0)" class="Edit" data-toggle="modl" data-target="#exampleModal" data-whatever="@mdo" onclick="exampleup()">
+                                    <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_icon_advice_bj_n.png">
+                                </a>
+                                <h4 class="text-center FontColor">Advice Column</h4>
+                                <!-- <a href="#" class="More">
+                                    <img src="img/01_shouye/home_sy_icon_c_more_n.png">
+                                </a> -->
+                            </div>
+                            <p class="ProposaText">
+                                In order to better serve the site,please put forward your valuable advice
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- advice end 建议 -->
+        </div>
+        <!-- footer -->
+        <footer class="footer">
+            <include file = "./World/Index/View/Public/footer.html"/>
+        </footer>
+
+    </div>
+    <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/layui/src/layui.js"></script>
+    <script src="__PUBLIC__/Web/web/js/index.js"></script>
+    <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+
+</body>
+
+<script>
+    $(".Help_tip").on("mouseover",function(){
+        $(".tooltip_box").css("display","block")
+    })
+    $(".Help_tip").on("mouseout",function(){
+        $(".tooltip_box").css("display","none")
+    })
+
+    $(function () {
+        let weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        let date = new Date();
+        $("#Today").text(weekday[date.getDay()]);
+        $("#Date").text(months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear());
+    });
+
+    function godonation() {
+        var aa = "{$userid}";
+        if(aa){
+            window.location.href="{:U('Index/Index/donation')}";
+        }else{
+            layer.msg("请先登录",{
+                    time:1500,
+                },function(){
+                    //window.location.href="{:U('Index/Login/login')}&mm=Index&cc=Index&&aa=donation&&url=1";
+                window.location.href="{:U('Index/Login/login')}";
+                }
+            );
+        }
+    }
+
+    function exampleup() {
+
+        var aa = "{$userid}";
+        if(aa){
+            $('#exampleModal').modal('show');
+        }else{
+            layer.msg("请先登录",{
+                    time:1500,
+                },function(){
+
+                    window.location.href="{:U('Index/Login/login')}";
+                }
+            );
+        }
+
+
+    }
+
+    function donationlist() {
+
+        var aa = "{$userid}";
+        if(aa){
+            window.location.href="{:U('Index/Index/listOfDonations')}";
+        }else{
+            layer.msg("请先登录",{
+                    time:1500,
+                },function(){
+                    //window.location.href="{:U('Index/Login/login')}&mm=Index&cc=Index&&aa=listOfDonations&&url=1";
+                    window.location.href="{:U('Index/Login/login')}";
+                }
+            );
+        }
+
+    }
+	
+    function sign_in_record() {
+	var aa = "{$userid}";
+	if(aa) {
+		window.location.href="{:U('Signin/sign')}";
+	} else {
+		 layer.msg("请先登录",{
+                    time:1500,
+                },function(){
+                    //window.location.href="{:U('Index/Login/login')}&mm=Index&cc=Index&&aa=listOfDonations&&url=1";
+                    window.location.href="{:U('Index/Login/login')}";
+                }
+            );
+
+	}
+    }
+
+    function sign_out(){
+           var aa = "{$userid}";
+           if(aa){
+           // window.location.href="{:U('Signin/sign')}";
+           	var myDate = new Date();
+        	var date = myDate.getDate()
+        	$.ajax({
+            		type: "POST",
+            		url: "https://newworld-platform.com/index.php?m=Index&c=signin&a=sign_in",
+            		data: { date: date },
+            		dataType: "json",
+            		success: function (res) {
+                		if (res == 1) {
+                    			alert("签到成功")
+                    			window.location.reload();
+                		} else if (res == 2) {
+                    			alert('您也签到')
+                		}
+            		}
+        		})
+	}else{
+            layer.msg("请先登录",{
+                    time:1500,
+                },function(){
+                    //window.location.href="{:U('Index/Login/login')}&mm=Index&cc=Index&&aa=listOfDonations&&url=1";
+                    window.location.href="{:U('Index/Login/login')}";
+                }
+            );
+        }
+    }
+
+    
+
+    function upproposal() {
+
+        $.ajax({
+            type:"post",
+            url:"{:U('Index/Ajax/ajax_createproposal')}",
+            data:{
+                text:$("#message-text").val(),
+                type:$("#proposal-type").val(),
+
+            },
+            dataType:"json",
+            async:false,
+            success: function(data){
+                if (data!=null&&data!="") {
+                    if (data.str == 1) {
+                        layer.msg(data.msg,{
+                                time:1500,
+                                icon:1,
+                            },function () {
+                            $('#exampleModal').modal('hide');
+                            }
+                        );
+                    }else{
+                        layer.msg(data.msg,{
+                                time:1500,
+                                icon:2,
+                            }
+                        );
+                    }
+
+                }else{
+                    layer.msg('请求错误!',{
+                            time:1500,
+                            icon:2,
+                        }
+                    );
+                }
+
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrown){
+
+                layer.msg('请求失败!',{
+                        time:1500,
+                        icon:2,
+                    }
+                );
+            }
+
+        })
+    }
+
+    function gohome(id) {
+        window.location.href="{:U('Index/User/personalCenter')}&id="+id;
+    }
+
+
+</script>
+
+</html>

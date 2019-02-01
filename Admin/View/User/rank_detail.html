@@ -1,0 +1,217 @@
+<head>
+	<meta charset="utf-8" />
+	<title>{:L('newworld_admin')}</title>
+	<meta name="keywords" content="{:L('newworld_admin')}" />
+	<meta name="description" content="{:L('newworld_admin')}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- basic styles -->
+	<link href="__PUBLIC__/Admin//admin/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/font-awesome.min.css" />
+
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/font-awesome-ie7.min.css" />
+	<![endif]-->
+
+	<!-- page specific plugin styles -->
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/jquery-ui-1.10.3.custom.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/chosen.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/bootstrap-timepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/daterangepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/colorbox.css" />
+	<!-- ace styles -->
+
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/Admin/admin/css/ace-skins.min.css" />
+
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" href="__PUBLIC__/Admin//admin/css/ace-ie.min.css" />
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+	<!--[if !IE]> -->
+
+	<script src="__PUBLIC__/Admin/admin/js/jquery-2.0.3.min.js"></script>
+
+	<!-- <![endif]-->
+	<!-- ace settings handler -->
+
+	<script src="__PUBLIC__/Admin//admin/js/ace-extra.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+	<!--[if lt IE 9]>
+	<script src="__PUBLIC__/Admin//admin/js/html5shiv.js"></script>
+	<script src="__PUBLIC__/Admin//admin/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body style='background:#fff;'>
+<div class="page-content">
+	<div class="page-header">
+		<h1>
+			{:L('User_user_manager')}
+			<small> <i class="icon-double-angle-right"></i>
+				{:L('rank_detail')}
+			</small>
+
+		</h1>
+	</div>
+
+
+	<div class="row">
+		<div class="col-xs-12 form-horizontal">
+			<h3>Ranking</h3>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_rankingone')}：</label>
+				<div class="col-sm-9">
+					<input id="r1" type="number" value="<?php echo $userranklist[0]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_rankingtwo')}：</label>
+				<div class="col-sm-9">
+					<input id="r2" type="number" value="<?php echo $userranklist[1]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_rankingthree')}：</label>
+				<div class="col-sm-9">
+					<input id="r3" type="number" value="<?php echo $userranklist[2]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_rankingfour')}：</label>
+				<div class="col-sm-9">
+					<input id="r4" type="number" value="<?php echo $userranklist[3]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<h3>Wealth</h3>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_wealthone')}：</label>
+				<div class="col-sm-9">
+					<input id="r5" type="number" value="<?php echo $userranklist[4]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_wealthtwo')}：</label>
+				<div class="col-sm-9">
+					<input id="r6" type="number" value="<?php echo $userranklist[5]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_wealththree')}：</label>
+				<div class="col-sm-9">
+					<input id="r7" type="number" value="<?php echo $userranklist[6]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_wealthfour')}：</label>
+				<div class="col-sm-9">
+					<input id="r8" type="number" value="<?php echo $userranklist[7]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<h3>Contribution</h3>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_contributionone')}：</label>
+				<div class="col-sm-9">
+					<input id="r9" type="number" value="<?php echo $userranklist[8]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_contributiontwo')}：</label>
+				<div class="col-sm-9">
+					<input id="r10" type="number" value="<?php echo $userranklist[9]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_contributionthree')}：</label>
+				<div class="col-sm-9">
+					<input id="r11" type="number" value="<?php echo $userranklist[10]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1">{:L('rank_detail_contributionfour')}：</label>
+				<div class="col-sm-9">
+					<input id="r12" type="number" value="<?php echo $userranklist[11]['u_rank_money']?>" style="width:300px;"/>
+				</div>
+			</div>
+
+			</fieldset>
+
+			<div class="form-actions center">
+				<a class="btn btn-sm btn-success" onclick="upthis()">
+					<i class="icon-edit bigger-110"></i>
+					{:L('User_user_list_comfirm_update')}
+				</a>
+			</div>
+
+		</div>
+	</div>
+</div>
+</body>
+<!-- /.page-content -->
+<style type="text/css" media="screen">
+	.btn-xs {
+		margin-right: 10px!important;
+	}
+</style>
+
+<script src="__PUBLIC__/Admin/admin/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/moment.min.js"></script>
+<script src="__PUBLIC__/Admin/admin/js/date-time/daterangepicker.min.js"></script>
+
+
+<!-- ajax 提交表单 -->
+
+<script type="text/javascript" language="javascript" src="__PUBLIC__/Admin/admin/js/jquery.tan.js"></script>
+<script type="text/javascript" language="javascript" src="__PUBLIC__/Admin/admin/js/jquery.form.js"></script>
+
+<script>
+
+	function upthis() {
+
+        $.ajax({
+            url: "{:U('Admin/User/ajax_rank_edit')}",
+            type: "POST",
+            data: {
+                'r1': $("#r1").val(),
+                'r2': $("#r2").val(),
+                'r3': $("#r3").val(),
+                'r4': $("#r4").val(),
+                'r5': $("#r5").val(),
+                'r6': $("#r6").val(),
+                'r7': $("#r7").val(),
+                'r8': $("#r8").val(),
+                'r9': $("#r9").val(),
+                'r10': $("#r10").val(),
+                'r11': $("#r11").val(),
+                'r12': $("#r12").val(),
+            },
+            dataType:'json',
+            success: function (data) {
+                if(data.str==1){
+                    alert(data.msg)
+					location.reload()
+				}else{
+                    alert(data.msg)
+				}
+
+            },
+            error: function () {
+                showMessage("{:L('newworld_ajax_upload_fail')}",2)
+            }
+        });
+    }
+
+</script>
+
+
+
+
+
+
+
+

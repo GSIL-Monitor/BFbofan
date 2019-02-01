@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>sign</title>
+		<meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+		<link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+		<link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+		<link rel="stylesheet" href="__PUBLIC__/Web/web/css/sign.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/rili.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Crumbsnav.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+	<link rel="stylesheet" href="https://at.alicdn.com/t/font_1035646_um4r3c629lj.css">
+    </head>
+    
+    <body>
+    <!-- Head information start 头信息 -->
+    <div class="container headerBox">
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="#" class="logo" title="logo"></a>
+                </div>
+    
+                <div class="col-md-6">
+                    <include file = "./World/Index/View/Public/head.html"/>
+                    <div class="nav">
+                        <nav class="navbar NavBg">
+                            <ul class="ListInline">
+                                <li><a href="{:U('Index/Index/index')}">Home</a></li>
+                                <li><a href="{:U('Index/Rnterst/interest')}" >Interest</a></li>
+                                <li><a href="{:U('Index/Academic/academic')}">Academy</a></li>
+                                <li><a href="{:U('Index/Jobs/work')}">Jobs</a></li>
+                                <li><a href="{:U('Index/Life/life')}" id="NavSelected">Life</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Head information end 头信息 -->
+
+         <!-- Carousel advertising start 轮播广告 -->
+    <!-- <div class="layui-carousel Banner" id="test2">
+        <div carousel-item="">
+            <div class="Carousel_img">
+                <a href="#">
+                    <img src="__PUBLIC__/Web/web/img/banner.png">
+                </a> 
+            </div>
+            <div class="Carousel_img">
+                <a href="#">
+                    <img src="__PUBLIC__/Web/web/img/banner.png">
+                </a> 
+            </div>
+            <div class="Carousel_img">
+                <a href="#">
+                    <img src="__PUBLIC__/Web/web/img/banner.png">
+                </a> 
+            </div><div class="Carousel_img">
+                <a href="#">
+                    <img src="__PUBLIC__/Web/web/img/banner.png">
+                </a> 
+            </div>
+            <div class="Carousel_img">
+                <a href="#">
+                    <img src="__PUBLIC__/Web/web/img/banner.png">
+                </a> 
+            </div>
+        </div>
+    </div> -->
+    <!-- Carousel advertising end 轮播广告 -->
+
+            <!-- Second-Hand Market start 二手市场-->
+            <div class="container S_Market">
+                    
+                    
+                 <if condition="$signs.user_id eq null">   
+                  <span class="check" id="checkin" >CHECK IN</span> 
+                  <else/>  
+                    <span class="check" style="background-color:#ccc;" >CHECK IN</span>
+
+                    <a href="{:U('Index/Signin/log')}" style="margin-left:640px;" class="More">
+                                            <img src="__PUBLIC__/Web/web/img/01_shouye/home_sy_icon_c_more_n.png">
+                    </a>
+
+                 </if>   
+                   
+
+                    <div class="row S_Market_detail">
+                        
+                               
+                         
+                             
+
+                       <div class="ipsum">
+                             <div class="activi">
+                              Activity rules:  
+                             </div> 
+ Lorem ipsum dolor sit amet,  <br>
+ consectetur  adipiscing elit.   <br>
+Proin gravida dolor sit amet lacus   <br>
+ accumsanet Aenean euismod bibendum laoreet. <br>
+ viverra justo commodo. Proin sodales pulvinar  <br>
+tempor.  nascetur  Cum sociis natoque penatibus<br >
+  et magnis dis parturient   montes,  vulputate <br >
+  ,felis  ridiculus mus. Nam fermentum, nulla <br >
+eget.  luctus pharetra tellus mollis orci, sed <br >
+rhoncus sapien nunc<br >
+                       </div>     
+                        <div style=" margin-left:80px; margin-top: 35px; width:300px;height:300px;" id="calendar"></div>
+                            
+                        <div class="conti">Sign in for {$user['user_signday']} days</div> 
+                         <div class="cont2">Sign In  Cumulative {$count} days</div>            
+    
+
+                        
+                    </div>
+
+            </div>
+
+            <!-- Second-Hand Market end 二手市场 -->
+            <!-- search start 搜索 -->
+		
+            <!-- search end 搜索 -->
+            
+            <!--Group list sataer 群列表-->
+		
+            </div>
+            <!--Group list end 群列表-->
+
+            <!-- footer -->
+            <footer>
+                <include file = "./World/Index/View/Public/footer.html"/>
+            </footer>
+                <!--foot end 底部信息-->
+                <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+                <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+                <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+                <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+                <script src="__PUBLIC__/Web/js/lib/layui/src/layui.js"></script>
+                <script src="__PUBLIC__/Web/web/js/index.js"></script>
+                <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+                <script src="__PUBLIC__/Web/web/js/rili.js"></script>
+    </body>
+    <script>
+        $(function(){
+          //ajax获取日历json数据
+        
+            $.ajax({
+                type: "POST",
+                url: "https://newworld-platform.com/index.php?m=Index&c=signin&a=sign_day",
+                data: {'':''},
+                dataType: "json",
+                success:function(res){
+                        
+                   
+                    if(res){
+                            var arr=[]
+
+                           for(var i=0;i<res.length;i++){
+                               
+                                    arr.push({
+                                        signDay: (res[i].date.split(' ')[0]).split('-')[2]
+                                    })
+                           }
+                            
+
+
+                            console.log(arr)
+
+                            var signList=[{"signDay":"18"},{"signDay":"19"},{"signDay":"20"},{"signDay":"17"}];
+                                 
+                            calUtil.init(arr);
+                        }
+
+                
+
+                    
+                }
+
+            })
+
+                 var signList=[{"signDay":""},{"signDay":""},{"signDay":""},{"signDay":""}];
+                         
+                    calUtil.init(signList);
+         
+        
+        });
+
+        $('#checkin').click(function(){
+
+            var myDate = new Date();
+                  
+              var date = myDate.getDate()    
+               
+            
+                 $.ajax({
+                    type: "POST",
+                    url: "https://newworld-platform.com/index.php?m=Index&c=signin&a=sign_in",
+                    data: {date:date},
+                    dataType: "json",
+                    success:function(res){
+
+                       if(res==1){
+
+                        alert("签到成功")
+
+                        
+                        window.location.reload();
+                         
+                       }else if(res==2){
+                        alert('您也签到')
+                       }
+
+                    }
+                })
+
+
+
+
+        })
+
+
+
+    </script>
+
+</html>

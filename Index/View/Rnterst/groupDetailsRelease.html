@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Group details release</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/register.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Donation.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/CreateInterest.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/GroupDetailsRelease.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/releasePosition.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Crumbsnav.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/EditResource.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/changeimg.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/common.css">
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/loading.css">
+</head>
+
+<body>
+    <div class="web">
+        <!-- logo -->
+        <header class="container">
+            <include file = "./World/Index/View/Public/head.html"/>
+            </header>
+            <hr>
+        <!-- Crumbs nav -->
+        <div class="container crumbs">
+            <a href="{:U('Index/Rnterst/interest')}" class="crumbsa">interest</a>
+            <cite class="Icon"></cite>
+            <a href="{:U('Index/Rnterst/groupDetails')}&cid={$cid}" class="crumbsa">{$crowdone['crowd_name']}</a>
+            <cite class="Icon"></cite>
+            <span class="crumbsTitle">Relase</span>
+        </div>
+    
+        <!-- Forget the password form -->
+        <form class="layui-form layui-form-pane section" action="" autocomplete="off" id="formdata">
+            <div class="PasswordContainer">
+                <div class="StepContainer">
+                    <div class="StepContainerOne">
+                        <div class="InterestTitle">
+                            <h3 class="text-center Interesth3">
+
+                            </h3>
+                        </div>
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_01.png" alt="">
+                                </div>
+                                <!-- <span class="TitlesIcon"></span> -->
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <input type="text" name="number" id="name" lay-verify="required" autocomplete="off" placeholder="Enter the title" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_02.png" alt="">
+                                </div>
+                                <!-- <span class="TypesIcon"></span> -->
+                            </label>
+                            <div class="layui-input-block input-spacing inputW">
+                                <select name="city" lay-verify="required" class="select_use" lay-filter="test">
+                                    <foreach name="tablist" item="tab" key="tabkey">
+                                    <option value="{$tab['crowd_tab_id']}">{$tab['crowd_tab_name']}</option>
+    
+                                    </foreach>
+                                </select>
+                            </div>
+                            <!-- <div class="layui-input-block" id="layui-input-block">
+                                <select name="city" lay-verify="required" class="select_use" lay-filter="test">
+                                    <foreach name="tablist" item="tab" key="tabkey">
+                                    <option value="{$tab['crowd_tab_id']}">{$tab['crowd_tab_name']}</option>
+    
+                                    </foreach>
+                                </select>
+                            </div> -->
+                        </div>
+    
+                        <div class="Post_box">
+                            <div class="FormContainer" pane>
+                                <label class="layui-form-label label-spacing">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_03.png" alt="">
+                                    </div>
+                                    <!-- <span class="ContentsIcon"></span> -->
+                                </label>
+                                <div class="layui-input-block input-spacing inputW">
+                                    <textarea name="number" id="postcontent" placeholder="Enter the content"  class="layui-textarea Returntextarea"></textarea>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="QaA_box">
+                            <div class="FormContainer" pane>
+                                <label class="layui-form-label label-spacing">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_icon_xs.png" alt="">
+                                    </div>
+                                    <!-- <span class="MoneyIcon"></span> -->
+                                </label>
+                                <div class="layui-input-block input-spacing inputW">
+                                    <input type="number" name="number" id="qareward"  autocomplete="off" placeholder="Enter the reward" class="layui-input">
+                                    <img src="__PUBLIC__/Web/web/img/vcoin2.png" alt="" style="width: 20px;height: 20px;position: relative;left: 92%;top:-32px">
+                                </div>
+                            </div>
+                            <div class="FormContainer" pane>
+                                <label class="layui-form-label label-spacing">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_03.png" alt="">
+                                    </div>
+                                    <!-- <span class="ContentsIcon"></span> -->
+                                </label>
+                                <div class="layui-input-block input-spacing inputW">
+
+                                    <textarea name="number" id="qacontent" placeholder="Enter the content"  class="layui-textarea Returntextarea"></textarea>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="Resource_box">
+                            <div class="FormContainer" pane>
+                                <label class="layui-form-label label-spacing">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/06_gerenzhongxin/grzx_icon_con.png" alt="">
+                                    </div>
+                                    <!-- <span class="NumberIcon"></span> -->
+                                </label>
+                                <div class="layui-input-block input-spacing inputW">
+                                    <input type="number" name="number" id="resourcereward" autocomplete="off" placeholder="How much will you charge?" class="layui-input">
+                                    <img src="__PUBLIC__/Web/web/img/vcoin2.png" alt="" style="width: 20px;height: 20px;position: relative;left: 92%;top:-32px">
+                                </div>
+                            </div>
+                            <div class="FormContainer" pane>
+                                <label class="layui-form-label label-spacing">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_03.png" alt="">
+                                    </div>
+                                    <!-- <span class="ContentsIcon"></span> -->
+                                </label>
+                                <div class="layui-input-block input-spacing inputW">
+                                    <!--<input type="text" name="number" id="resourcecontent" autocomplete="off" placeholder="Enter the description (description is shown for free)" class="layui-input">-->
+                                    <textarea name="number" id="resourcecontent" placeholder="Enter the description (description is shown for free)" autocomplete="off" class="layui-textarea Returntextarea"></textarea>
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="FormContainer" pane>
+                            <label class="layui-form-label label-spacing" style="background: transparent;border: none;">
+                                <div class="label_img">
+                                    <img src="__PUBLIC__/Web/web/img/02_interest/interest_create_icon_04.png" alt="">
+                                </div>
+                                <!-- <span class="HeadPortraitIcon"></span> -->
+                            </label>
+                            <div class="picDiv">
+                                <div id="video" class="w50" style="display: none;"></div>
+                                <div id="result">
+                                    <div class="add_btn" data-isNew="false">
+                                        <input type="file" name="file_input[]" id="file_input" multiple onchange="xmTanUploadImg(this)" />
+                                        <span>+</span>
+                                    </div>
+                                    <div class="shadow_video">
+                                        </div>
+                                            <div class="video_box">
+                                                <div class="video_shut">x</div>
+                                                <div class="video_area">
+                                                <!-- <video width="100%" height="100%">
+                                                        <source src="../web/img/video.mp4" type="video/mp4"></source>
+                                                    </video>
+                                                </div> -->
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="msg" style="display: none;"></div>
+                        </div>
+                       <input type="text" id="memu" name="memu"  lay-verify="required" autocomplete="off" placeholder="Enter charged content" class="layui-input">
+                        <div>Please upload pictures less than 3M or video less than 1G</div>
+                        <div class="Resource_box">
+                            <div class="FormContainer-one" pane>
+                                <label class="layui-form-label label-spacing" style="margin-top: 8px">
+                                    <div class="label_img">
+                                        <img src="__PUBLIC__/Web/web/img/02_interest/up.png" alt="">
+                                    </div>
+                                    <!-- <span class="ContentsIcon"></span> -->
+                                </label>
+                                <!--<label class="HeadPortraitbox-one">
+                                    <span class="filesIcon">Upload resources</span>
+                                </label>-->
+                                <div class="picDiv-one">
+                                    <div class="addImages">
+                                        <div class="files_name"><span>Select to upload the resume file</span></div>
+                                        <button type="button" class="layui-btn layui-btn-normal" id="testList">Browse</button>
+                                    </div>
+                                </div>
+                                <div class="msg" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="FormContainer from-but">
+                            <button class="layui-btn layui-btn-normal layui-btn-radius Submit-but" lay-submit="demo1" lay-filter="demo1">
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+        <!-- loading -->
+        <div class="loading_box">
+            <div class="loading_gif">
+                <img src="__PUBLIC__/Web/web/img/timg3.gif" alt="">
+            </div>
+        </div>
+        <!-- foot start 底部信息 -->
+        <footer class="footer">
+            <include file = "./World/Index/View/Public/footer.html"/>
+        </footer>
+        <!-- foot end 底部信息 -->
+
+    </div>
+    <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+    <script src="__PUBLIC__/Web/web/js/GroupDetailsRelease.js"></script>
+    <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+    <script src="__PUBLIC__/Web/web/js/changeimg.js"></script>
+    <script>
+        var resourcefile=''
+        var $ = layui.jquery,upload = layui.upload;
+        var demoListView = $('.FormContainer-one .picDiv-one .addImages .files_name'),
+        uploadListIns = upload.render({
+                elem: '#testList'
+                ,url: 'yourUrl'
+                ,accept: 'file'
+                ,data:{}   //可放扩展数据  key-value
+                ,multiple: true
+                ,auto: false
+                ,bindAction: '#testListAction',elem: '#testList'
+                ,url: 'yourUrl'
+                ,accept: 'file'
+                ,data:{}   //可放扩展数据  key-value
+                ,multiple: true
+                ,auto: false
+                ,bindAction: '#testListAction',
+                choose:function(obj){
+                    obj.preview(function(index, file, result){
+                        var tr = $(['<span>'+file.name+'</span>'].join(''));
+                        demoListView.eq(0)[0].childNodes[0].remove();
+                        demoListView.append(tr);
+                        resourcefile = file
+                    })
+                }
+        })
+    </script>
+    <script>
+            var form = layui.form;
+            var selectedValue =1
+            form.on('select',function(data){
+                //console.log(data.value);
+                selectedValue = data.value;
+                //console.log(selectedValue)
+                if(selectedValue==1){
+                    $(".Post_box").css("display","block");
+                    $(".QaA_box").css("display","none");
+                    $(".Resource_box").css("display","none");
+                    $("#memu").css("display","none");
+                }
+                if(selectedValue==2){
+                    $(".Post_box").css("display","none");
+                    $(".QaA_box").css("display","block");
+                    $(".Resource_box").css("display","none");
+                    $("#memu").css("display","none");
+                }
+                if(selectedValue==3){
+                    $(".Post_box").css("display","none");
+                    $(".QaA_box").css("display","none");
+                    $(".Resource_box").css("display","block");
+                     $("#memu").css("display","block");
+                }
+
+
+            })
+               $("input[type='number']").on("blur",function(){
+                    var input_num = $(this).val();
+                    var patrn=/^([1-9]\d*|0)(\.\d*[1-9])?$/; 
+                    if (!patrn.exec(input_num)){
+                        $(this).val("")
+                    } else{
+                        
+                    }
+               })     
+
+            
+            layui.use('form', function(){
+                var form = layui.form;
+                // var values=[];
+
+
+                /*form.on('submit(demo1)', function(data){
+
+
+                    if (selectedValue ==1 ) {
+                        var file_files = document.getElementById('file_input').files;
+                        var file_obj = document.getElementById('formdata');
+                        var fd = new FormData();
+                        for (var i = 0; i < file_files.length; i++){
+                            console.log(file_files[i])
+                            fd.append('img['+i+']',file_files[i])
+                        }
+                        fd.append('name',$("#name").val())
+                        fd.append('content',$("#postcontent").val())
+                        fd.append('cid','{$cid}')
+                        $.ajax({
+                            url: "{:U('Index/Ajax/ajax_createnote')}",
+                            type: "POST",
+                            async: false,
+                            cache: false,
+                            processData: false,// 告诉jQuery不要去处理发送的数据
+                            contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                            data: fd,
+                            dataType: "json",
+                            success: function (data) {
+                                console.log(data)
+                                if (data.str == 1){
+                                    layer.msg('创建成功',{
+                                            time:1500,
+                                            icon:1,
+                                        },function () {
+                                            window.location.href="{:U('Index/Rnterst/postDetails')}&nid="+data.id+"&cid="+data.cid;
+                                        }
+                                    );
+
+                                }else{
+                                    layer.msg(data.msg,{
+                                            time:1500,
+                                            icon:2,
+                                        }
+                                    );
+
+                                }
+                            },
+                            error: function (err) {
+
+                                layer.msg('请求失败!', {
+                                        time: 1500,
+                                        icon: 2,
+                                    }
+                                );
+                            }
+                        });
+                    }else if (selectedValue ==2 ){
+
+                        var file_files = document.getElementById('file_input').files;
+                        var file_obj = document.getElementById('formdata');
+                        var fd = new FormData();
+                        for (var i = 0; i < file_files.length; i++){
+                            console.log(file_files[i])
+                            fd.append('img['+i+']',file_files[i])
+                        }
+                        fd.append('name',$("#name").val())
+                        fd.append('content',$("#qacontent").val())
+                        fd.append('reward',$("#qareward").val())
+                        fd.append('cid','{$cid}')
+                        $.ajax({
+                            url: "{:U('Index/Ajax/ajax_createqa')}",
+                            type: "POST",
+                            async: false,
+                            cache: false,
+                            processData: false,// 告诉jQuery不要去处理发送的数据
+                            contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                            data: fd,
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.str == 1){
+                                    layer.msg('创建成功',{
+                                            time:1500,
+                                            icon:1,
+                                        },function () {
+                                            window.location.href="{:U('Index/Rnterst/postVideoDetails')}&id="+data.id+"&cid="+data.cid;
+                                        }
+                                    );
+
+                                }else{
+                                    layer.msg(data.msg,{
+                                            time:1500,
+                                            icon:2,
+                                        }
+                                    );
+
+                                }
+                            },
+                            error: function (err) {
+
+                                layer.msg('请求失败!', {
+                                        time: 1500,
+                                        icon: 2,
+                                    }
+                                );
+                            }
+                        });
+                    }else if (selectedValue ==3 ){
+                        if (resourcefile==''){
+                            layer.msg('请上传资源',{
+                                    time:1500,
+                                    icon:2,
+                                }
+                            );
+                        }else {
+                            var fd1 = new FormData();
+                            fd1.append('img', resourcefile);
+
+                            $.ajax({
+                                url: "{:U('Index/Ajax/ajax_uploadfile')}",
+                                type: "POST",
+                                async: false,
+                                cache: false,
+                                processData: false,// 告诉jQuery不要去处理发送的数据
+                                contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                                data: fd1,
+                                dataType: "json",
+                                success: function (data) {
+
+                                    var file_files = document.getElementById('file_input').files;
+                                    var file_obj = document.getElementById('formdata');
+                                    var fd = new FormData();
+                                    for (var i = 0; i < file_files.length; i++) {
+                                        console.log(file_files[i])
+                                        fd.append('img[]', file_files[i])
+                                    }
+                                    fd.append('name', $("#name").val())
+                                    fd.append('content', $("#resourcecontent").val())
+                                    fd.append('reward', $("#resourcereward").val())
+                                    fd.append('resourcefile', data.msg)
+                                    fd.append('cid', '{$cid}')
+                                    $.ajax({
+                                        url: "{:U('Index/Ajax/ajax_createresource')}",
+                                        type: "POST",
+                                        async: false,
+                                        cache: false,
+                                        processData: false,// 告诉jQuery不要去处理发送的数据
+                                        contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                                        data: fd,
+                                        dataType: "json",
+                                        success: function (data) {
+                                            console.log(data)
+                                            if (data.str == 1){
+                                                layer.msg('创建成功',{
+                                                        time:1500,
+                                                        icon:1,
+                                                    },function () {
+                                                        window.location.href="{:U('Index/Rnterst/postVideoDetails')}&id="+data.id+"&cid="+data.cid;
+                                                    }
+                                                );
+
+                                            }else{
+                                                layer.msg(data.msg,{
+                                                        time:1500,
+                                                        icon:2,
+                                                    }
+                                                );
+
+                                            }
+                                        },
+                                        error: function (err) {
+
+                                            layer.msg('请求失败!', {
+                                                    time: 1500,
+                                                    icon: 2,
+                                                }
+                                            );
+                                        }
+                                    });
+                                },
+                                error: function (err) {
+
+                                    layer.msg('请求失败!', {
+                                            time: 1500,
+                                            icon: 2,
+                                        }
+                                    );
+                                }
+                            });
+                        }
+                    }
+
+
+                    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                });*/
+                // $(".PasswordContainer .FormContainer .Submit-but").on("click",function(){
+                //             $(".loading_box").css("display","block")
+                //             $("body").css("overflow", "hidden");
+                        
+                //         })
+                //  $("#file_input").bind("change",function(){
+                //         console.log(file_files)
+                //     })
+                // file_input.addEventListener("change",function(){
+                //     for(let key in file_input.files){
+                //          	//只遍历对象自身的属性，而不包含继承于原型链上的属性。  
+                //         if (file_input.files.hasOwnProperty(key) === true){
+                //             values.push(file_input.files[key]);   
+                //         }  
+                //     }
+                //     // console.log(values)
+                // })
+                form.on('submit(demo1)', function(data){
+
+                    // $("body").css("overflow", "hidden");
+                    var file_input = document.getElementById("file_input");
+                    if (selectedValue ==1 ) {
+                        var file_files = document.getElementById('file_input').files;
+                        var file_obj = document.getElementById('formdata');
+                        var fd = new FormData();
+
+                        for (var i = 0; i < values.length; i++){
+                            if((values[i].type.split("/")[0]=='image'&&values[i].size>3145728)||(values[i].type.split("/")[0]=='video'&&values[i].size>1073741824)){
+                                    layer.msg('The image or video size is too large. The limitation is 3M or 1G.', {
+                                            time: 1500,
+                                            icon: 2,
+                                        }
+                                    );
+                                return false
+                            }
+                            fd.append('img['+i+']',values[i])
+                        }
+                        /*return false*/
+                        fd.append('name',$("#name").val())
+                        fd.append('content',$("#postcontent").val())
+                        fd.append('cid','{$cid}')
+                        fd.append('posttype',selectedValue)
+                          fd.append('memu', $("#memu").val())
+
+                        $(".loading_box").css("display","block")
+                        $.ajax({
+                            url: "{:U('Index/Ajax/ajax_createpost')}",
+                            type: "POST",
+                            cache: false,
+                            processData: false,// 告诉jQuery不要去处理发送的数据
+                            contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                            data: fd,
+                            dataType: "json",
+                            success: function (data) {
+                                
+                                //console.log(data)
+                                if (data.str == 1){
+                                    layer.msg('创建成功',{
+                                            time:1500,
+                                            icon:1,
+                                        },function () {
+                                            window.location.href="{:U('Index/Rnterst/postDetails')}&nid="+data.id+"&cid="+data.cid;
+                                        }
+                                    );
+
+                                }else{
+                                    layer.msg(data.msg,{
+                                            time:1500,
+                                            icon:2,
+                                        },function(){
+                                            $(".loading_box").css("display","none")
+                                        }
+                                    );
+
+                                }
+                            },
+                            error: function (err) {
+                                layer.msg('请求失败!', {
+                                        time: 1500,
+                                        icon: 2,
+                                    },function(){
+                                        $(".loading_box").css("display","none") 
+                                    }
+                                );
+                            }
+                        });
+                    }else if (selectedValue ==2 ){
+
+                        var file_files = document.getElementById('file_input').files;
+                        var file_obj = document.getElementById('formdata');
+                        var fd = new FormData();
+                        for (var i = 0; i < file_files.length; i++){
+                            if((values[i].type.split("/")[0]=='image'&&values[i].size>3145728)||(values[i].type.split("/")[0]=='video'&&values[i].size>1073741824)){
+                                layer.msg('The image or video size is too large. The limitation is 3M or 1G.', {
+                                        time: 1500,
+                                        icon: 2,
+                                    }
+                                );
+                                return false
+
+                            }
+                            fd.append('img['+i+']',file_files[i])
+                        }
+                        fd.append('name',$("#name").val())
+                        fd.append('content',$("#qacontent").val())
+                        fd.append('reward',$("#qareward").val())
+                        fd.append('cid','{$cid}')
+                        fd.append('posttype',selectedValue)
+                          fd.append('memu', $("#memu").val())
+                        $(".loading_box").css("display","block")
+
+                        $.ajax({
+                            url: "{:U('Index/Ajax/ajax_createpost')}",
+                            type: "POST",
+                            cache: false,
+                            processData: false,// 告诉jQuery不要去处理发送的数据
+                            contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                            data: fd,
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.str == 1){
+                                    layer.msg('创建成功',{
+                                            time:1500,
+                                            icon:1,
+                                        },function () {
+                                        window.location.href="{:U('Index/Rnterst/postDetails')}&nid="+data.id+"&cid="+data.cid;
+                                        }
+                                    );
+
+                                }else{
+                                    layer.msg(data.msg,{
+                                            time:1500,
+                                            icon:2,
+                                        },function(){
+                                        $(".loading_box").css("display","none") 
+                                    }
+                                    );
+
+                                }
+                            },
+                            error: function (err) {
+
+                                layer.msg('请求失败!', {
+                                        time: 1500,
+                                        icon: 2,
+                                    },function(){
+                                        $(".loading_box").css("display","none") 
+                                    }
+                                );
+                            }
+                        });
+                    }else if (selectedValue ==3 ){
+
+
+                     
+                        var file_files = document.getElementById('file_input').files;
+                        var file_obj = document.getElementById('formdata');
+                        var fd = new FormData();
+                        for (var i = 0; i < file_files.length; i++) {
+                            //console.log(file_files[i])
+                            if((values[i].type.split("/")[0]=='image'&&values[i].size>3145728)||(values[i].type.split("/")[0]=='video'&&values[i].size>1073741824)){
+                                layer.msg('The image or video size is too large. The limitation is 3M or 1G.', {
+                                        time: 1500,
+                                        icon: 2,
+                                    }
+                                );
+                                return false
+                            }
+                            fd.append('img[]', file_files[i])
+                        }
+                        fd.append('name', $("#name").val())
+                        fd.append('content', $("#resourcecontent").val())
+                        fd.append('reward', $("#resourcereward").val())
+                        fd.append('cid', '{$cid}')
+                        fd.append('posttype',selectedValue)
+                        fd.append('memu', $("#memu").val())
+                        var memu =$("#memu").val()
+                    
+
+                     
+
+
+                        $(".loading_box").css("display","block")
+
+
+                        if (resourcefile==''){
+
+
+                            $.ajax({
+                                url: "{:U('Index/Ajax/ajax_createpost')}",
+                                type: "POST",
+                                cache: false,
+                                processData: false,// 告诉jQuery不要去处理发送的数据
+                                contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                                data: fd,'memu':memu,
+                                dataType: "json",
+                                success: function (data) {
+                                    //console.log(data)
+                                    if (data.str == 1){
+                                        layer.msg('创建成功',{
+                                                time:1500,
+                                                icon:1,
+                                            },function () {
+                                                window.location.href="{:U('Index/Rnterst/postDetails')}&nid="+data.id+"&cid="+data.cid;
+                                            }
+                                        );
+
+                                    }else{
+                                        layer.msg(data.msg,{
+                                                time:1500,
+                                                icon:2,
+                                            },function(){
+                                                $(".loading_box").css("display","none") 
+                                            }
+                                        );
+
+                                    }
+                                },
+                                error: function (err) {
+
+                                    layer.msg('请求失败!', {
+                                            time: 1500,
+                                            icon: 2,
+                                        },function(){
+                                            $(".loading_box").css("display","none") 
+                                        }
+                                    );
+                                }
+                            });
+                        }else {
+
+
+                            var fd1 = new FormData();
+                            fd1.append('img', resourcefile);
+                            var fd1 = $("#memu").val()
+                            var memu =$("#memu").val()
+                    
+                            console.log(fd1)
+
+
+                            $.ajax({
+                                url: "{:U('Index/Ajax/ajax_uploadfile')}",
+                                type: "POST",
+                                cache: false,
+                                processData: false,// 告诉jQuery不要去处理发送的数据
+                                contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                                data: fd1,'memu':memu,
+                                dataType: "json",
+                                success: function (data) {
+
+                                    var file_files = document.getElementById('file_input').files;
+                                    var file_obj = document.getElementById('formdata');
+                                    var fd = new FormData();
+                                    for (var i = 0; i < file_files.length; i++) {
+                                        //console.log(file_files[i])
+                                        if((values[i].type.split("/")[0]=='image'&&values[i].size>3145728)||(values[i].type.split("/")[0]=='video'&&values[i].size>1073741824)){
+                                            layer.msg('The image or video size is too large. The limitation is 3M or 1G.', {
+                                                    time: 1500,
+                                                    icon: 2,
+                                                }
+                                            );
+                                            return false
+                                        }
+                                        fd.append('img[]', file_files[i])
+                                    }
+                                    fd.append('name', $("#name").val())
+                                    fd.append('content', $("#resourcecontent").val())
+                                    fd.append('reward', $("#resourcereward").val())
+                                    fd.append('resourcefile', data.msg)
+                                    fd.append('cid', '{$cid}')
+                                    fd.append('posttype',selectedValue)
+                                    $.ajax({
+                                        url: "{:U('Index/Ajax/ajax_createpost')}",
+                                        type: "POST",
+                                        cache: false,
+                                        processData: false,// 告诉jQuery不要去处理发送的数据
+                                        contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                                        data: fd,
+                                        dataType: "json",
+                                        success: function (data) {
+                                            //console.log(data)
+                                            if (data.str == 1){
+                                                layer.msg('创建成功',{
+                                                        time:1500,
+                                                        icon:1,
+                                                    },function () {
+                                                    window.location.href="{:U('Index/Rnterst/postDetails')}&nid="+data.id+"&cid="+data.cid;
+                                                    }
+                                                );
+
+                                            }else{
+                                                layer.msg(data.msg,{
+                                                        time:1500,
+                                                        icon:2,
+                                                    },function(){
+                                                            $(".loading_box").css("display","none") 
+                                                        }
+                                                );
+
+                                            }
+                                        },
+                                        error: function (err) {
+
+                                            layer.msg('请求失败!', {
+                                                    time: 1500,
+                                                    icon: 2,
+                                                },function(){
+                                                    $(".loading_box").css("display","none") 
+                                                }
+                                            );
+                                        }
+                                    });
+                                },
+                                error: function (err) {
+
+                                    layer.msg('请求失败!', {
+                                            time: 1500,
+                                            icon: 2,
+                                        },function(){
+                                            $(".loading_box").css("display","none") 
+                                        }
+                                    );
+                                }
+                            });
+                        }
+                    }
+
+
+                    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                });
+
+            });
+    </script>
+</body>
+
+</html>

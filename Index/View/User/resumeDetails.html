@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Resume Details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0 user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/register.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Donation.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Crumbsnav.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/CreateAcademic.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/js/lib/layui/dist/css/layui.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/Crumbsnav.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/success_index.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/ResumeDetails.css">
+        <link rel="stylesheet" href="__PUBLIC__/Web/web/css/common.css">
+        <style>
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+            input[type="number"]{
+                -moz-appearance: textfield;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="web">
+
+            <!-- logo -->
+            <header class="container">
+                <include file = "./World/Index/View/Public/head.html"/>
+             </header>
+             <hr>
+     
+     
+         
+         <!-- Crumbs nav -->
+         <div class="container crumbs">
+             <if condition='$goindex == 1'>
+             <a href="{:U('Index/Index/index')}" class="crumbsa crumbsaImg"><img src="__PUBLIC__/Web/web/img/common_dh_icon_home.png" alt=""></a>
+             <cite class="Icon"></cite>
+             <a href="{:U('Index/User/mineResume')}" class="crumbsa">My Resume</a>
+             <cite class="Icon"></cite>
+             <span class="crumbsTitle">Resume details</span>
+             <else />
+                 <a href="{:U('Index/Jobs/jobList')}" class="crumbsa">Jobs List</a>
+                 <cite class="Icon"></cite>
+                 <span class="crumbsTitle">Resume details</span>
+             </if>
+             
+         </div>
+         
+         <!-- ResumeDetails content -->
+         <div class="container section">
+         <div class="Resumetails_content">
+                 <div class="Resumetails_title">
+                     <div class="title_item">
+                         <a href="{:U('User/DeliveryRecord')}">
+                             Delivery record
+                         </a>
+                     </div>
+                     <div class="title_item">
+                         <a href="{:U('User/ResumeTemplateList')}">
+                             Resume template
+                         </a>
+                     </div>
+                     <div class="title_item AutoDelivery">
+                         <a href="#">
+                             Automatic delivery
+                         </a>
+                     </div>
+                 </div>
+     
+                 <div class="Resume_details">
+                     <form action="" class="layui-form layui-form-pane">
+                         <div class="form_box">
+                             <div class="form_title">
+                                 <div class="form_title_img">
+                                     <img src="__PUBLIC__/Web/web/img/common_icon_write.png" alt="">
+                                 </div>
+                                 <h3>Community Basic Info</h3>
+                             </div>
+                             <div class="form_details">
+     
+                                 <div class="form_details_item">
+                                     <div class="form_details_left">
+                                         <div class="form_details_item_img">
+                                             <img src="__PUBLIC__/Web/web/img/02_interest/interest_qxx_fb_icon_02.png" alt="">
+                                         </div>
+                                     </div>
+                                     <div class="layui-input-block">
+                                         <input type="radio" name="JobTime" value="1" title="Full Time" <if condition='!$resumeone["resume_tid"]||$resumeone["resume_tid"]==1'>checked</if>>
+                                         <input type="radio" name="JobTime" value="2" title="Part Time" <if condition='$resumeone["resume_tid"]==2'>checked</if>>
+                                         <input type="radio" name="JobTime" value="3" title="Practice" <if condition='$resumeone["resume_tid"]==3'>checked</if>>
+                                     </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/02_interest/interest_sy_gl_icon_renshu.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                             <input type="text" name="title" id="name" required  lay-verify="required" placeholder="Enter the real name" autocomplete="off" <if condition='$resumeone["resume_name"]'>value="{$resumeone['resume_name']}"</if> class="layui-input">
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/06_gerenzhongxin/grzx_sz_icon_06.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                             <input type="text" name="title" id="position" required  lay-verify="required" placeholder="Enter a job title" autocomplete="off" <if condition='$resumeone["resume_position"]'>value="{$resumeone['resume_position']}"</if> class="layui-input">
+                                         </div>
+                                 </div>
+     
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/06_gerenzhongxin/grzx_icon_money.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                                 <div class="layui-input-inline">
+                                                     <input type="number" name="price_min" id="lowmoney" placeholder="$" autocomplete="off" <if condition='$resumeone["resume_lowmoney"]'>value="{$resumeone['resume_lowmoney']}"</if> class="layui-input minNum">
+                                                 </div>
+                                                     <div class="layui-form-mid">~</div>
+                                                 <div class="layui-input-inline">
+                                                     <input type="number" name="price_max" min="0" id="hightmoney" placeholder="$" autocomplete="off" <if condition='$resumeone["resume_hightmoney"]'>value="{$resumeone['resume_hightmoney']}"</if> class="layui-input maxNum">
+                                                 </div>
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/06_gerenzhongxin/grzx_homepage_xinxi_icon_03.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                             <input type="text" name="title" id="workyear" required  lay-verify="required" placeholder="Enter the number of years of service" autocomplete="off" <if condition='$resumeone["resume_workyear"]'>value="{$resumeone['resume_workyear']}"</if> class="layui-input">
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/02_interest/interest_create_icon_02.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                             <input type="text" name="title" id="university" required  lay-verify="required" placeholder="Enter a graduate school" autocomplete="off" <if condition='$resumeone["resume_university"]'>value="{$resumeone['resume_university']}"</if> class="layui-input">
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/06_gerenzhongxin/degree.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                             <input type="text" name="title" id="degree" required  lay-verify="required" placeholder="Enter your degree" autocomplete="off" <if condition='$resumeone["resume_degree"]'>value="{$resumeone['resume_degree']}"</if> class="layui-input">
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_left form_details_item_border">
+                                                 <div class="form_details_item_img">
+                                                     <img src="__PUBLIC__/Web/web/img/03_academic/academic_create_icon_04.png" alt="">
+                                                 </div>
+                                             </div>
+                                         <div class="layui-input-block">
+                                             <input type="text" name="title" id="specialty" required  lay-verify="required" placeholder="Enter professional" autocomplete="off" <if condition='$resumeone["resume_specialty"]'>value="{$resumeone['resume_specialty']}"</if> class="layui-input">
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                         <div class="form_details_middle">
+                                                 Upload resume : 
+                                         </div>
+                                         <div class="layui-input-block">
+                                             <div class="addImages">
+                                                 <div class="files_name"><span> <if condition='$resumeone["resume_fileurl"]'>{$resumeone['resume_fileurl']}<else />Select to upload the resume file</if></span></div>
+                                                 <button type="button" class="layui-btn layui-btn-normal" id="testList">Browse</button>
+                                             </div>
+                                         </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                     <div class="form_details_middle">
+                                                 Salary Negotiable :
+                                     </div>
+                                     <div class="layui-input-block">
+                                         <input type="radio" name="isnegotiable" value="0" title="no" <if condition='!$resumeone["resume_isnegotiable"]||$resumeone["resume_isnegotiable"]==0'>checked</if>>
+                                         <input type="radio" name="isnegotiable" value="1" title="yes" <if condition='$resumeone["resume_isnegotiable"]==1'>checked</if>>
+                                     </div>
+                                 </div>
+     
+                                 <div class="form_details_item">
+                                     <div class="form_details_middle">
+                                         Upload status :
+                                     </div>
+                                     <div class="layui-input-block">
+                                         <p><if condition='$resumeone["resume_status"]==1'>To be delivered</if><if condition='!$resumeone["resume_status"]||$resumeone["resume_status"]==0'>To be prefect</if></p>
+                                     </div>
+                                 </div>
+     
+                                 <div class="form_details_item item_btn" style="cursor: pointer;" lay-submit="demo1" lay-filter="demo1">
+                                         <button>Save</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+         </div>
+         
+         <div class="ResumeDetails_shadow">
+             <div class="shadow_box">
+                 <h2>Tips</h2>
+                 <!-- <div class="shadow_quit">x</div> -->
+                 <span>Automatic resume delivery is successful !</span>
+                 <p>Good Luckly ！</p>
+                 <div class="shadow_quit">submit</div>
+             </div>
+             
+         </div>
+         
+     
+         <!-- footer -->
+         <footer class="footer">
+             <include file = "./World/Index/View/Public/footer.html"/>
+         </footer>
+        </div>
+    </body>
+        <script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+		<script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+        <script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+        <script>
+            var a = 1
+            var c = 1
+            $(".minNum").on("blur",function(){
+                var UBlur = parseInt($(this).val());
+                var maxNumBlur = parseInt($(".maxNum").val());
+                if(UBlur>maxNumBlur && $(".maxNum").val()!="" ){
+                    layer.msg("The minimum cannot be greater than the maximum", {
+                                    time: 1500,
+                                    icon: 2,
+                                }
+                            );
+                            $(this).focus()
+                }else{
+                    UBlur >= 0 ? $(this).val() : $(this).val("0");
+                }
+            })
+            $(".maxNum").on("blur",function(){
+                var UBlur = parseInt($(this).val());
+                var minNumBlur = parseInt($(".minNum").val());
+                // UBlur >= 0 ? $(this).val() : $(this).val("0");
+                if(UBlur<=minNumBlur && $(".minNum").val()!=""){
+                    layer.msg("The maximum cannot be greater than the minimum", {
+                                    time: 1500,
+                                    icon: 2,
+                                }
+                            );
+                            $(this).focus()
+                }else{
+                    UBlur >= 0 ? $(this).val() : $(this).val("0");
+                }
+            })
+            layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            
+            //执行一个laydate实例
+            laydate.render({
+                elem: '.Wtime', //指定元素
+                lang:'en',
+                type: 'year',
+                max: maxDate(),
+            });
+            });
+            function maxDate(){
+                var now = new Date();
+                return now.getFullYear()+"-" + (now.getMonth()+1) + "-" + now.getDate();
+            }
+
+
+
+
+            var fileone
+            if ('{$resumeone["resume_fileurl"]}'){
+                fileone = 1
+            }
+
+            var $ = layui.jquery,upload = layui.upload;
+            var demoListView = $('.addImages .files_name'), uploadListIns = upload.render({
+                     elem: '#testList'
+                        ,url: 'yourUrl'
+                        ,accept: 'file'
+                        ,data:{}   //可放扩展数据  key-value
+                        ,multiple: true
+                        ,auto: false
+                        ,bindAction: '#testListAction',elem: '#testList'
+                        ,url: 'yourUrl'
+                        ,accept: 'file'
+                        ,data:{}   //可放扩展数据  key-value
+                        ,multiple: true
+                        ,auto: false
+                        ,bindAction: '#testListAction',
+                        choose:function(obj){
+                            obj.preview(function(index, file, result){
+                                var tr = $(['<span>'+file.name+'</span>'].join(''));
+                                fileone = file;
+                                demoListView.eq(0)[0].childNodes[0].remove();
+                                demoListView.append(tr);
+                            }) 
+                        }
+                })
+
+            layui.use('form', function(){
+                var form = layui.form;
+
+                form.on('submit(demo1)', function(data){
+
+                    var fd = new FormData();
+                    fd.append('img', fileone);
+                    if (a==c) {
+                        c = 2
+                        if (fileone == 1) {
+
+                            $.ajax({
+                                type: "post",
+                                url: "{:U('Index/Ajax/ajax_resumedetails')}",
+                                data: {
+                                    name: $("#name").val(),
+                                    position: $("#position").val(),
+                                    tid: $("input[name='JobTime']:checked").val(),
+                                    lowmoney: $("#lowmoney").val(),
+                                    hightmoney: $("#hightmoney").val(),
+                                    workyear: $("#workyear").val(),
+                                    university: $("#university").val(),
+                                    degree: $("#degree").val(),
+                                    specialty: $("#specialty").val(),
+                                    fileurl: '{$resumeone["resume_fileurl"]}',
+                                    isnegotiable: $("input[name='isnegotiable']:checked").val(),
+                                    resume_id: "{$resumeone['resume_id']}",
+
+                                },
+                                dataType: "json",
+                                async: false,
+                                success: function (resume) {
+
+                                    if (resume != null && resume != "") {
+                                        if (resume.str == 1) {
+                                            window.location.href = "{:U('Index/User/mineResume')}";
+                                            layer.msg(resume.msg, {
+                                                    time: 1500,
+                                                    icon: 1,
+                                                }, function () {
+
+
+                                                }
+                                            );
+
+                                        } else {
+                                            c = 1
+                                            layer.msg(resume.msg, {
+                                                    time: 1500,
+                                                    icon: 2,
+                                                }
+                                            );
+                                        }
+
+                                    } else {
+                                        c = 1
+                                        layer.msg('请求错误!', {
+                                                time: 1500,
+                                                icon: 2,
+                                            }
+                                        );
+                                    }
+
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    c = 1
+                                    layer.msg('请求失败!', {
+                                            time: 1500,
+                                            icon: 2,
+                                        }
+                                    );
+                                }
+
+                            })
+
+                        } else {
+                            $.ajax({
+                                url: "{:U('Index/Ajax/ajax_uploadfile')}",
+                                type: "POST",
+                                async: false,
+                                cache: false,
+                                processData: false,// 告诉jQuery不要去处理发送的数据
+                                contentType: false,// 告诉jQuery不要去设置Content-Type请求头
+                                data: fd,
+                                dataType: "json",
+                                success: function (data) {
+                                    //console.log(data)
+                                    if (data.str == 1) {
+                                        $.ajax({
+                                            type: "post",
+                                            url: "{:U('Index/Ajax/ajax_resumedetails')}",
+                                            data: {
+                                                name: $("#name").val(),
+                                                position: $("#position").val(),
+                                                tid: $("input[name='JobTime']:checked").val(),
+                                                lowmoney: $("#lowmoney").val(),
+                                                hightmoney: $("#hightmoney").val(),
+                                                workyear: $("#workyear").val(),
+                                                university: $("#university").val(),
+                                                degree: $("#degree").val(),
+                                                specialty: $("#specialty").val(),
+                                                fileurl: data.msg,
+                                                isnegotiable: $("input[name='isnegotiable']:checked").val(),
+                                                resume_id: "{$resumeone['resume_id']}",
+
+                                            },
+                                            dataType: "json",
+                                            async: false,
+                                            success: function (resume) {
+                                                if (resume != null && resume != "") {
+                                                    if (resume.str == 1) {
+
+                                                        layer.msg(resume.msg, {
+                                                                time: 1500,
+                                                                icon: 1,
+                                                            }, function () {
+
+                                                                window.location.href = "{:U('Index/User/mineResume')}";
+                                                            }
+                                                        );
+
+
+                                                    } else {
+                                                        c = 1
+                                                        layer.msg(resume.msg, {
+                                                                time: 1500,
+                                                                icon: 2,
+                                                            }
+                                                        );
+                                                    }
+
+                                                } else {
+                                                    c = 1
+                                                    layer.msg('请求错误!', {
+                                                            time: 1500,
+                                                            icon: 2,
+                                                        }
+                                                    );
+                                                }
+
+                                            },
+                                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                                c = 1
+                                                layer.msg('请求失败!', {
+                                                        time: 1500,
+                                                        icon: 2,
+                                                    }
+                                                );
+                                            }
+
+                                        })
+
+                                    } else {
+                                        c = 1
+                                        layer.msg('文件上传失败!', {
+                                                time: 1500,
+                                                icon: 2,
+                                            }
+                                        );
+                                    }
+
+                                },
+                                error: function (err) {
+                                    c = 1
+                                    layer.msg('请求失败!', {
+                                            time: 1500,
+                                            icon: 2,
+                                        }
+                                    );
+                                }
+                            });
+                        }
+                    }
+
+                    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+                });
+
+            });
+
+
+        </script>
+        <script>
+            $(".Resumetails_content .Resumetails_title .AutoDelivery").on("click",function(){
+                $(".ResumeDetails_shadow").css("display","block")
+            })
+            $(".ResumeDetails_shadow .shadow_box .shadow_quit").on("click",function(){
+                $(".ResumeDetails_shadow").css("display","none")
+            })
+            // $(document).on("click",function(e){
+            //     $(".ResumeDetails_shadow").css("display","none");
+            // })
+        </script>
+
+
+<script>
+
+
+
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <include file="./World/Index/View/Public/meta.html"/>
+    <link rel="stylesheet" href="__PUBLIC__/Web/web/css/common.css">
+</head>
+
+<body>
+    <div class="web">
+        <!-- logo -->
+        <header class="container">
+        <include file="./World/Index/View/Public/head.html"/>
+        </header>
+        <hr>
+    
+        <!-- Crumbs nav -->
+    
+        <div class="container crumbs">
+        <a href="{:U('Index/Index/index')}" class="crumbsa crumbsaImg"><img src="__PUBLIC__/Web/web/img/common_dh_icon_home.png" alt=""></a>
+        <cite class="Icon"></cite>
+        <a href="{:U('User/DeliveryRecord')}" class="crumbsa">{$title}</a>
+        <cite class="Icon"></cite>
+        <span class="crumbsTitle">{$title}</span>
+        </div>
+    
+        <div class="container section">
+        <div class="DeliveryRecord_box">
+            <table class="layui-table">
+                <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Delivery company</td>
+                    <td>Date</td>
+                    <td> E-Mail</td>
+                    <td>Status</td>
+                </tr>
+                </thead>
+                <foreach name="myDelivery" item="m">
+                    <tr class="tr_item">
+                        <td>{$m['resume_name']}</td>
+                        <td>{$m['works_position']}</td>
+                        <td>{$m['delivery_createtime']}</td>
+                        <td>{$m['user_mail']}</td>
+                        <td><if condition="$m['delivery_status'] == 0">Has been delivered<elseif condition="$m['delivery_status'] == 1"/>Have agreed<else/>Have rejected</if></td>
+                    </tr>
+                </foreach>
+            </table>
+    
+        </div>
+    
+        <div class="container" id="NumberOfPagesContainer">
+            {$page}
+        </div>
+        </div>
+    
+        <!-- footer -->
+        <footer class="footer">
+            <include file = "./World/Index/View/Public/footer.html"/>
+        </footer>
+
+    </div>
+
+</body>
+<script src="__PUBLIC__/Web/js/lib/jquery/dist/jquery.min.js"></script>
+<script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="__PUBLIC__/Web/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Web/js/lib/layui/dist/layui.all.js"></script>
+<script src="__PUBLIC__/Web/web/js/StickSonDetails.js"></script>
+<script src="__PUBLIC__/Web/web/js/loginQuit.js"></script>
+<script>
+
+</script>
+</html>
