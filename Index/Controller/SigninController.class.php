@@ -114,26 +114,20 @@ class SigninController extends CommonController {
             $this->ajaxReturn('2');
         }
         // 连续签到积分计算
-        if ($signInLen >= 11 && $signInLen <= 20) {
-            $coin += 3;
-        } else if ($signInLen >= 21 && $signInLen <= 31) {
-            $coin += 4;
-        } else {
-            $coin += 2;
-        }
-
-        // 累积签到积分计算
-        if ($signInCount === 7) {
-            $coin += 2;
-        } else if ($signInCount === 14) {
-            $coin += 4;
-        } else if ($signInCount === 21) {
-            $coin += 7;
-        } else if ($signInCount === 28) {
-            $coin += 10;
-        }
-
-        if (M('u_sign')->add([
+	$coin += M('s_coinrules')->where([
+		'type' => 7,
+		'min' => ['egt', $signInLen],
+		'max' => ['elt', $signInLen]
+	])->find()['coin'];
+	// 累计签到	
+	if($ruleModel = M('s_coinrules')->where([
+		'type' => 8,
+		'min'  => $signInCount]
+	])->find()) {
+		$coin += $ruleModel['coin'];
+	}
+        
+	if (M('u_sign')->add([
             'user_id' => $user_id,
             'date' => date('Y-m-d H:i:s'),
             'jifen' => $coin,

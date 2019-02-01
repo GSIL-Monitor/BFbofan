@@ -469,19 +469,29 @@ class RnterstController extends CommonController {
 		}
 
 		//浏览量判定 null 则 自增1  记录
-		if(M('u_note_viewlog')->where(['userid' => $this->userid, 'noteid' => $nid])->find() === null) {
+		$nowdata = [];
+		if (M('u_note_viewlog')->where(['userid' => $this->userid, 'noteid' => $nid])->find() === null) {
 			M('u_note_viewlog')->data([
 					'userid' => $this->userid,
 					'noteid' => $nid,
-					'created_at' => date('Y-m-d H:i:s')
+					'created_at' => date('Y-m-d H:i:s'),
 					])->add();
 
-			$nowdata = array(
-					'note_browses'=>$noteone['note_browses']+1,
-					);
+			$note_browses = $noteone['note_browses'] + 1;
+			$nowdata['note_browses'] = $note_browses;
+			$notemodel->updataone('note_id = ' . $_GET['nid'], $nowdata);
+
+			//  判断浏览量 奖励积分
+			$ruleModel = M('s_coinrules')->where('type = 1 and min = '.(int)$note_browses)->find();
+			//$ruleModel = false;
+			// 存在规则则奖励
+			if($ruleModel) {
+				$usermodel->where(['user_id' => $noteone['note_uid']])->setInc('user_havecoin', $ruleModel['coin']);
+			}
 		}
 
-		$notemodel->updataone('note_id = '.$_GET['nid'],$nowdata);
+		//
+
 
 		$coinrulemodel = new CoinruleModel();
 		$coinruleone = $coinrulemodel->findone('s_coinrule_id = 1','*');
